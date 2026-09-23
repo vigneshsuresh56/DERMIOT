@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Skincare Collection - DERMIQT Skincare</title>
+    <meta name="description" content="Explore DERMIQT's botanical skincare collection. Shop cold-pressed oils, clarifying cleansers, restorative serums, and gentle exfoliators formulated for radiant, healthy skin.">
+    
+    <!-- External stylesheet as specified -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Design Tokens & Fallbacks */
+        :root {
+            --dark-mocha: #3D261D;
+            --warm-cream: #F9F4EE;
+            --accent-gold: #F5B800;
+            --neutral-taupe: #EADFD4;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+            --shadow-card: 0 8px 30px rgba(61, 38, 29, 0.08);
+            --shadow-hover: 0 16px 40px rgba(61, 38, 29, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--warm-cream);
+            color: var(--dark-mocha);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: var(--font-body);
+            border: none;
+            background: none;
+        }
+
+        /* Utilities & Section Spacing */
+        .section-padding {
+            padding: 5rem 4rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 4rem;
+            background-color: rgba(61, 38, 29, 0.97);
+            color: var(--warm-cream);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(249, 244, 238, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .navbar button, .navbar a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-body);
+        }
+
+        .navbar a.nav-link:hover, .navbar button.menu-icon:hover {
+            color: var(--accent-gold);
+        }
+
+        .navbar a.nav-link.active {
+            color: var(--accent-gold);
+            position: relative;
+        }
+
+        .navbar a.nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .nav-logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-family: var(--font-heading);
+            color: var(--warm-cream);
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            color: var(--accent-gold);
+        }
+
+        .menu-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-shop {
+            background-color: var(--accent-gold) !important;
+            color: var(--dark-mocha) !important;
+            padding: 0.65rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 700 !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 1px;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(245, 184, 0, 0.3);
+            display: inline-block;
+        }
+
+        .btn-shop:hover {
+            transform: translateY(-2px) scale(1.03);
+            background-color: #ffd24d !important;
+            box-shadow: 0 6px 20px rgba(245, 184, 0, 0.45);
+        }
+
+        /* Mobile Drawer */
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            z-index: 2000;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .mobile-nav-drawer.open {
+            transform: translateX(320px);
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(249, 244, 238, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .drawer-close {
+            color: var(--warm-cream);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .drawer-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            flex: 1;
+        }
+
+        .drawer-link {
+            color: var(--warm-cream);
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.6rem 0;
+            transition: var(--transition);
+        }
+
+        .drawer-link:hover, .drawer-link.active {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .drawer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .drawer-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding-top: 140px;
+            padding-bottom: 90px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 48vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(245, 184, 0, 0.09), transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(245, 184, 0, 0.12);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(245, 184, 0, 0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--neutral-taupe);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== SHOP SECTION & FILTERS ===== */
+        .shop-section {
+            background-color: var(--warm-cream);
+            border-top: 1px solid var(--neutral-taupe);
+            position: relative;
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .shop-header-title {
+            max-width: 480px;
+        }
+
+        .shop-header-title .filter-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #88786e;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .shop-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark-mocha);
+            line-height: 1.15;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border: 1.5px solid var(--dark-mocha);
+            background: transparent;
+            color: var(--dark-mocha);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            box-shadow: 0 4px 15px rgba(61, 38, 29, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PRODUCT GRID & CARDS ===== */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 2.2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid var(--neutral-taupe);
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(245, 184, 0, 0.4);
+        }
+
+        .product-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            background: #F0E7DD;
+            aspect-ratio: 1 / 1.15;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.08);
+        }
+
+        /* Product Badges */
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 3;
+            background: rgba(61, 38, 29, 0.88);
+            color: var(--warm-cream);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.35rem 0.8rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(249, 244, 238, 0.15);
+        }
+
+        /* Like Button */
+        .like-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 5;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--neutral-taupe);
+            padding: 0.42rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: #726259;
+            box-shadow: 0 4px 12px rgba(61, 38, 29, 0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .like-btn i {
+            font-size: 0.95rem;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .like-btn:hover {
+            color: #e74c3c;
+            border-color: #e74c3c;
+            background: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        .like-btn.liked {
+            color: #e74c3c !important;
+            border-color: #e74c3c;
+            background: #FFFFFF;
+        }
+
+        .like-btn.liked i {
+            color: #e74c3c !important;
+            transform: scale(1.15);
+        }
+
+        .like-btn.pop i {
+            transform: scale(1.4);
+        }
+
+        .likes-count {
+            font-weight: 700;
+        }
+
+        /* Quick Add Button (appears on hover) */
+        .quick-add {
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-gold);
+            color: var(--dark-mocha);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.8px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            white-space: nowrap;
+            z-index: 4;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-card:hover .quick-add {
+            bottom: 16px;
+            opacity: 1;
+        }
+
+        .quick-add:hover {
+            background-color: #FFD24D;
+            transform: translateX(-50%) scale(1.04);
+        }
+
+        /* Product Info */
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding-top: 0.4rem;
+            margin-top: auto;
+        }
+
+        .product-text {
+            flex: 1;
+        }
+
+        .product-info h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-mocha);
+            margin-bottom: 0.3rem;
+            line-height: 1.25;
+            transition: color 0.2s ease;
+        }
+
+        .product-card:hover .product-info h4 {
+            color: #8C5338;
+        }
+
+        .product-subtag {
+            font-size: 0.78rem;
+            color: #88786e;
+            font-weight: 500;
+            display: block;
+        }
+
+        .product-info .price, .price {
+            font-weight: 700;
+            color: var(--dark-mocha);
+            font-size: 1.15rem;
+            font-family: var(--font-heading);
+            background: rgba(245, 184, 0, 0.15);
+            padding: 0.3rem 0.75rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            border: 1px solid rgba(245, 184, 0, 0.3);
+        }
+
+        /* Product Rating Stars */
+        .product-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+        }
+
+        .product-stars span {
+            color: #88786e;
+            font-size: 0.75rem;
+            margin-left: 0.3rem;
+        }
+
+        /* ===== BANNER SECTION ===== */
+        .banner-section {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 8.5rem 4rem;
+            color: var(--warm-cream);
+            text-align: center;
+            margin-top: 5rem;
+            overflow: hidden;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(61, 38, 29, 0.88) 0%, rgba(61, 38, 29, 0.72) 50%, rgba(61, 38, 29, 0.92) 100%);
+            z-index: 1;
+        }
+
+        .banner-content {
+            max-width: 840px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(245, 184, 0, 0.18);
+            padding: 0.45rem 1.3rem;
+            border-radius: 30px;
+            margin-bottom: 1.8rem;
+            border: 1px solid rgba(245, 184, 0, 0.35);
+        }
+
+        .banner-content h2 {
+            font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+            margin-bottom: 1.4rem;
+            line-height: 1.12;
+            color: var(--warm-cream);
+            letter-spacing: -0.5px;
+        }
+
+        .banner-content p {
+            font-size: 1.22rem;
+            line-height: 1.75;
+            color: var(--neutral-taupe);
+            margin-bottom: 2.8rem;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banner-features {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            color: var(--warm-cream);
+            font-weight: 500;
+        }
+
+        .banner-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .banner-feature-item i {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .banner-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .banner-secondary-link {
+            color: var(--warm-cream);
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(249, 244, 238, 0.5);
+            transition: var(--transition);
+        }
+
+        .banner-secondary-link:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+            transform: translateX(4px);
+        }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 3000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(245, 184, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .toast-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toast-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .toast-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toast-text strong {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .toast-text span {
+            font-size: 0.8rem;
+            color: var(--neutral-taupe);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: #2D1B14;
+            color: var(--warm-cream);
+            padding: 5rem 4rem 2.5rem;
+            border-top: 1px solid rgba(249, 244, 238, 0.08);
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .brand-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-family: var(--font-heading);
+            color: var(--warm-cream);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: var(--neutral-taupe);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 360px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(249, 244, 238, 0.08);
+            color: var(--warm-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: var(--warm-cream);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--neutral-taupe);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 4px;
+        }
+
+        .footer-newsletter p {
+            color: var(--neutral-taupe);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 25px;
+            border: 1px solid rgba(249, 244, 238, 0.2);
+            background: rgba(249, 244, 238, 0.06);
+            color: var(--warm-cream);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--accent-gold);
+            background: rgba(249, 244, 238, 0.12);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent-gold);
+            color: var(--dark-mocha);
+            border-radius: 25px;
+            padding: 0.75rem 1.3rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #ffd24d;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(249, 244, 238, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #98877e;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ===== RESPONSIVE MEDIA QUERIES ===== */
+        @media (max-width: 1200px) {
+            .section-padding { padding: 4.5rem 3rem; }
+            .navbar { padding: 1.2rem 3rem; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+            .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 1024px) {
+            .section-padding { padding: 4rem 2rem; }
+            .navbar { padding: 1rem 2rem; }
+            .nav-left, .nav-right { gap: 1.4rem; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+            .banner-section { padding: 6.5rem 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 3.5rem 1.5rem; }
+            .navbar { padding: 0.9rem 1.2rem; }
+            
+            /* Hide desktop navigation items on small screens */
+            .nav-left a.nav-link { display: none; }
+            .nav-right a.nav-link { display: none; }
+            
+            .nav-logo { font-size: 1.35rem; letter-spacing: 3px; }
+            .btn-shop { padding: 0.55rem 1.3rem; font-size: 0.75rem !important; }
+            
+            .page-header { padding-top: 110px; padding-bottom: 60px; min-height: 40vh; }
+            .page-header h1 { font-size: 2.4rem; }
+            .page-header p { font-size: 1rem; }
+            
+            .shop-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
+            .category-filters {
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 0.6rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            .filter-btn { flex-shrink: 0; padding: 0.5rem 1.1rem; font-size: 0.78rem; }
+            
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+            .product-card { padding: 0.75rem; }
+            .product-info h4 { font-size: 1rem; }
+            .product-info .price { font-size: 0.95rem; padding: 0.2rem 0.55rem; }
+            
+            /* Show quick add on touch/mobile */
+            .quick-add {
+                position: static;
+                transform: none;
+                opacity: 1;
+                width: 100%;
+                margin-top: 0.8rem;
+                border-radius: 10px;
+                padding: 0.65rem;
+                justify-content: center;
+            }
+            .product-card:hover .quick-add { bottom: auto; }
+            
+            .banner-section { padding: 5rem 1.5rem; margin-top: 3.5rem; }
+            .banner-content h2 { font-size: 2.2rem; }
+            .banner-content p { font-size: 1.05rem; margin-bottom: 2rem; }
+            .banner-features { gap: 1.2rem; flex-direction: column; align-items: center; margin-bottom: 2rem; }
+            
+            .footer { padding: 4rem 1.5rem 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            
+            .toast-notification {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2rem; }
+            .shop-header h2 { font-size: 1.8rem; }
+            .banner-content h2 { font-size: 1.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="menu-icon dropbtn" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-th-large"></i> MENU &nbsp;&nbsp;|&nbsp;&nbsp;
+            </button>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="products.html" class="nav-link active">PRODUCTS</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+        </div>
+        <a href="index.html" class="nav-logo">DERMIQT</a>
+        <div class="nav-right">
+            <a href="reviews.html" class="nav-link">REVIEWS</a>
+            <a href="blog.html" class="nav-link">BLOG</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="products.html"><button class="btn-shop">SHOP NOW</button></a>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <span class="nav-logo">DERMIQT</span>
+            <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html" class="drawer-link"><i class="fas fa-home"></i> HOME</a>
+            <a href="products.html" class="drawer-link active"><i class="fas fa-pump-soap"></i> PRODUCTS</a>
+            <a href="about.html" class="drawer-link"><i class="fas fa-leaf"></i> ABOUT</a>
+            <a href="reviews.html" class="drawer-link"><i class="fas fa-star"></i> REVIEWS</a>
+            <a href="blog.html" class="drawer-link"><i class="fas fa-newspaper"></i> BLOG</a>
+            <a href="gallery.html" class="drawer-link"><i class="fas fa-images"></i> GALLERY</a>
+        </div>
+        <div class="drawer-footer" style="margin-top:auto; padding-top:1.5rem;">
+            <a href="products.html" style="width:100%; display:block;">
+                <button class="btn-shop" style="width:100%; text-align:center;">SHOP NOW</button>
+            </a>
+        </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- 2. Page Hero Header with dark mocha background -->
+    <header class="page-header fade-in">
+        <div class="header-badge">
+            <i class="fas fa-spa"></i> PURE BOTANICAL HARMONY
+        </div>
+        <h1>Our Skincare Collection</h1>
+        <p>Pure, dermatologically backed botanical formulations designed to nourish your moisture barrier, amplify radiance, and honor your natural beauty ritual.</p>
+    </header>
+
+    <!-- 3 & 4. Shop Section: Category Filter Tabs & 15 Product Grid -->
+    <section class="shop-section section-padding" id="shop-catalog">
+        <div class="shop-header fade-in">
+            <div class="shop-header-title">
+                <p class="filter-text"><i class="fas fa-sliders-h"></i> Ritual Filter</p>
+                <h2>Curated For Every Complexion</h2>
+            </div>
+            <!-- Category Filter Tabs: All, Cleansers, Serums, Oils, Exfoliators, Hydration, Bundles -->
+            <div class="category-filters" role="tablist" aria-label="Product categories">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-btn" data-filter="cleansers" role="tab" aria-selected="false">Cleansers</button>
+                <button class="filter-btn" data-filter="serums" role="tab" aria-selected="false">Serums</button>
+                <button class="filter-btn" data-filter="oils" role="tab" aria-selected="false">Oils</button>
+                <button class="filter-btn" data-filter="exfoliators" role="tab" aria-selected="false">Exfoliators</button>
+                <button class="filter-btn" data-filter="hydration" role="tab" aria-selected="false">Hydration</button>
+                <button class="filter-btn" data-filter="bundles" role="tab" aria-selected="false">Bundles</button>
+            </div>
+        </div>
+
+        <!-- 15 Product Cards Grid -->
+        <div class="product-grid" id="productGrid">
+            
+            <!-- Product 1: Sun Beauty Oil -->
+            <div class="product-card fade-up" data-category="oils bundles">
+                <div class="product-img-container">
+                    <span class="product-badge">Bestseller</span>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Sun Beauty Oil bottle with golden botanical formula" loading="lazy">
+                    <button class="like-btn" data-likes="57" type="button" aria-label="Like Sun Beauty Oil">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">57</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Sun Beauty Oil">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Sun Beauty Oil</h4>
+                        <span class="product-subtag">Cold-Pressed Radiance Blend</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹699</div>
+                </div>
+            </div>
+
+            <!-- Product 2: Exfoliator Gel -->
+            <div class="product-card fade-up" data-category="exfoliators" style="transition-delay: 0.05s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Gentle Polish</span>
+                    <img src="https://images.unsplash.com/photo-1608248593842-8d765870a4c2?auto=format&fit=crop&w=400&q=80" alt="Exfoliator Gel natural skincare treatment" loading="lazy">
+                    <button class="like-btn" data-likes="83" type="button" aria-label="Like Exfoliator Gel">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">83</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Exfoliator Gel">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Exfoliator Gel</h4>
+                        <span class="product-subtag">Fruit AHA Cellular Renew</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹499</div>
+                </div>
+            </div>
+
+            <!-- Product 3: Rose Geranium -->
+            <div class="product-card fade-up" data-category="oils bundles" style="transition-delay: 0.1s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Organic Ritual</span>
+                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=400&q=80" alt="Rose Geranium botanical facial oil" loading="lazy">
+                    <button class="like-btn" data-likes="62" type="button" aria-label="Like Rose Geranium">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">62</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Rose Geranium">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Rose Geranium</h4>
+                        <span class="product-subtag">Harmonizing Floral Essence</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹899</div>
+                </div>
+            </div>
+
+            <!-- Product 4: Avocado Serum -->
+            <div class="product-card fade-up" data-category="serums" style="transition-delay: 0.15s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Nutrient Rich</span>
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=400&q=80" alt="Avocado Serum deep lipid barrier restoration" loading="lazy">
+                    <button class="like-btn" data-likes="95" type="button" aria-label="Like Avocado Serum">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">95</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Avocado Serum">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Avocado Serum</h4>
+                        <span class="product-subtag">Lipid Barrier Recovery</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹549</div>
+                </div>
+            </div>
+
+            <!-- Product 5: Hydra Glow Mist -->
+            <div class="product-card fade-up" data-category="hydration" style="transition-delay: 0.2s;">
+                <div class="product-img-container">
+                    <span class="product-badge">All-Day Glow</span>
+                    <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?auto=format&fit=crop&w=400&q=80" alt="Hydra Glow Mist botanical refreshing toner" loading="lazy">
+                    <button class="like-btn" data-likes="71" type="button" aria-label="Like Hydra Glow Mist">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">71</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Hydra Glow Mist">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Hydra Glow Mist</h4>
+                        <span class="product-subtag">Electrolyte Dewy Veil</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹399</div>
+                </div>
+            </div>
+
+            <!-- Product 6: Deep Cleanse Foam -->
+            <div class="product-card fade-up" data-category="cleansers" style="transition-delay: 0.25s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Pore Detox</span>
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80" alt="Deep Cleanse Foam gentle botanical facial wash" loading="lazy">
+                    <button class="like-btn" data-likes="54" type="button" aria-label="Like Deep Cleanse Foam">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">54</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Deep Cleanse Foam">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Deep Cleanse Foam</h4>
+                        <span class="product-subtag">Amino Acid pH-Balanced Wash</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹599</div>
+                </div>
+            </div>
+
+            <!-- Product 7: Vitamin C Drops -->
+            <div class="product-card fade-up" data-category="serums bundles" style="transition-delay: 0.3s;">
+                <div class="product-img-container">
+                    <span class="product-badge">15% Active</span>
+                    <img src="https://images.unsplash.com/photo-1556228720-192b9560f760?auto=format&fit=crop&w=400&q=80" alt="Vitamin C Drops active brightening serum" loading="lazy">
+                    <button class="like-btn" data-likes="88" type="button" aria-label="Like Vitamin C Drops">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">88</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Vitamin C Drops">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Vitamin C Drops</h4>
+                        <span class="product-subtag">L-Ascorbic Glow Amplifier</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹749</div>
+                </div>
+            </div>
+
+            <!-- Product 8: Night Repair Cream -->
+            <div class="product-card fade-up" data-category="hydration bundles" style="transition-delay: 0.35s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Overnight Cure</span>
+                    <img src="https://images.unsplash.com/photo-1614859324967-bdf4736f87ea?auto=format&fit=crop&w=400&q=80" alt="Night Repair Cream deep rejuvenating moisturizer" loading="lazy">
+                    <button class="like-btn" data-likes="76" type="button" aria-label="Like Night Repair Cream">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">76</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Night Repair Cream">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Night Repair Cream</h4>
+                        <span class="product-subtag">Ceramide Complex & Bakuchiol</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹999</div>
+                </div>
+            </div>
+
+            <!-- Product 9: Aloe Soothe Balm -->
+            <div class="product-card fade-up" data-category="hydration" style="transition-delay: 0.4s;">
+                <div class="product-img-container">
+                    <span class="product-badge">SOS Relief</span>
+                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=400&q=80" alt="Aloe Soothe Balm calming face and body cream" loading="lazy">
+                    <button class="like-btn" data-likes="63" type="button" aria-label="Like Aloe Soothe Balm">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">63</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Aloe Soothe Balm">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Aloe Soothe Balm</h4>
+                        <span class="product-subtag">Pure Aloe Vera & Cica Butter</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹349</div>
+                </div>
+            </div>
+
+            <!-- Product 10: Charcoal Purifier -->
+            <div class="product-card fade-up" data-category="cleansers" style="transition-delay: 0.45s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Deep Cleanse</span>
+                    <img src="https://images.unsplash.com/photo-1611078422533-315159048a17?auto=format&fit=crop&w=400&q=80" alt="Charcoal Purifier clarifying facial cleanser" loading="lazy">
+                    <button class="like-btn" data-likes="91" type="button" aria-label="Like Charcoal Purifier">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">91</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Charcoal Purifier">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Charcoal Purifier</h4>
+                        <span class="product-subtag">Activated Bamboo Charcoal Bar</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹649</div>
+                </div>
+            </div>
+
+            <!-- Product 11: Lumière Soap -->
+            <div class="product-card fade-up" data-category="cleansers" style="transition-delay: 0.5s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Artisan Cold-Craft</span>
+                    <img src="https://images.unsplash.com/photo-1571781526291-c477eb311dc6?auto=format&fit=crop&w=400&q=80" alt="Lumière Soap cold-processed botanical cleansing bar" loading="lazy">
+                    <button class="like-btn" data-likes="58" type="button" aria-label="Like Lumière Soap">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">58</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Lumière Soap">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Lumière Soap</h4>
+                        <span class="product-subtag">Shea Butter & French Clay</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹299</div>
+                </div>
+            </div>
+
+            <!-- Product 12: Rosehip Elixir -->
+            <div class="product-card fade-up" data-category="oils" style="transition-delay: 0.55s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Unrefined Gold</span>
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80" alt="Rosehip Elixir regenerative facial oil" loading="lazy">
+                    <button class="like-btn" data-likes="67" type="button" aria-label="Like Rosehip Elixir">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">67</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Rosehip Elixir">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Rosehip Elixir</h4>
+                        <span class="product-subtag">Wildcrafted Chilean Seed Oil</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹799</div>
+                </div>
+            </div>
+
+            <!-- Product 13: Turmeric Mask -->
+            <div class="product-card fade-up" data-category="exfoliators bundles" style="transition-delay: 0.6s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Brightening Mask</span>
+                    <img src="https://images.unsplash.com/photo-1592652425574-e3fb0eeb04af?auto=format&fit=crop&w=400&q=80" alt="Turmeric Mask radiant golden skin polish" loading="lazy">
+                    <button class="like-btn" data-likes="84" type="button" aria-label="Like Turmeric Mask">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">84</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Turmeric Mask">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Turmeric Mask</h4>
+                        <span class="product-subtag">Golden Curcumin Clay Polish</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹449</div>
+                </div>
+            </div>
+
+            <!-- Product 14: Neem Face Wash -->
+            <div class="product-card fade-up" data-category="cleansers" style="transition-delay: 0.65s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Purifying Cleanse</span>
+                    <img src="https://images.unsplash.com/photo-1605663730700-1c9f0c2e3dd7?auto=format&fit=crop&w=400&q=80" alt="Neem Face Wash natural clarifying gel wash" loading="lazy">
+                    <button class="like-btn" data-likes="72" type="button" aria-label="Like Neem Face Wash">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">72</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Neem Face Wash">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Neem Face Wash</h4>
+                        <span class="product-subtag">Ayurvedic Neem & Tea Tree Gel</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹379</div>
+                </div>
+            </div>
+
+            <!-- Product 15: Coconut Moisturizer -->
+            <div class="product-card fade-up" data-category="hydration" style="transition-delay: 0.7s;">
+                <div class="product-img-container">
+                    <span class="product-badge">Silky Moisture</span>
+                    <img src="https://images.unsplash.com/photo-1615396899839-c99c14188f60?auto=format&fit=crop&w=400&q=80" alt="Coconut Moisturizer botanical daily hydration cream" loading="lazy">
+                    <button class="like-btn" data-likes="55" type="button" aria-label="Like Coconut Moisturizer">
+                        <i class="fas fa-heart"></i>
+                        <span class="likes-count">55</span>
+                    </button>
+                    <button class="quick-add" type="button" aria-label="Quick Add Coconut Moisturizer">
+                        <i class="fas fa-shopping-bag"></i> Quick Add
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h4>Coconut Moisturizer</h4>
+                        <span class="product-subtag">Raw Coconut Water & Squalane</span>
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                    <div class="price">₹529</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Banner Section: "Your skin deserves the best" with a large background image -->
+    <section class="banner-section fade-up" style="background-image: url('https://images.unsplash.com/photo-1556228720-192b9560f760?auto=format&fit=crop&w=1920&q=80');">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <span class="banner-tag">
+                <i class="fas fa-seedling"></i> THE DERMIQT PHILOSOPHY
+            </span>
+            <h2>Your skin deserves the best</h2>
+            <p>Every bottle is formulated around wholesome, bio-compatible botanicals. No synthetic fragrance, no toxic parabens, no compromised standards — just clean, active nourishment crafted to make your skin flourish naturally.</p>
+            <div class="banner-features">
+                <div class="banner-feature-item">
+                    <i class="fas fa-check-circle"></i> 100% Plant-Forward Actives
+                </div>
+                <div class="banner-feature-item">
+                    <i class="fas fa-check-circle"></i> Dermatologist Tested & Verified
+                </div>
+                <div class="banner-feature-item">
+                    <i class="fas fa-check-circle"></i> Ethically Sourced & Cruelty-Free
+                </div>
+            </div>
+            <div class="banner-actions">
+                <a href="#shop-catalog"><button class="btn-shop" style="padding: 0.85rem 2.2rem; font-size: 0.9rem !important;">EXPLORE ALL PRODUCTS</button></a>
+                <a href="about.html" class="banner-secondary-link">Learn about our sourcing <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification for Add to Cart -->
+    <div class="toast-notification" id="cartToast" role="alert" aria-live="polite">
+        <div class="toast-icon"><i class="fas fa-check"></i></div>
+        <div class="toast-text">
+            <strong id="toastTitle">Added to Bag</strong>
+            <span id="toastMsg">Product added successfully</span>
+        </div>
+    </div>
+
+    <!-- Complete Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">DERMIQT</a>
+                <p>Pure botanical skincare formulated to celebrate the natural skin barrier. Conscious beauty developed with cold-pressed integrity and mindful science.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="about.html">About DERMIQT</a></li>
+                    <li><a href="reviews.html">Verified Reviews</a></li>
+                    <li><a href="gallery.html">Community Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Skincare Help</h4>
+                <ul class="footer-links">
+                    <li><a href="blog.html">Skin Journal & Blog</a></li>
+                    <li><a href="#shop-catalog">Routine Advisor</a></li>
+                    <li><a href="about.html">Botanical Ingredients</a></li>
+                    <li><a href="reviews.html">Customer Stories</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>Join The Ritual</h4>
+                <p>Subscribe for exclusive product drops, holistic skincare guides, and 15% off your first purchase.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to DERMIQT!'); this.reset();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DERMIQT Botanicals. All rights reserved.</p>
+            <p>Designed with care for healthy, joyful skin everywhere.</p>
+        </div>
+    </footer>
+
+    <!-- Inline script at bottom for like button click logic and page interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Like button click logic (increment count on click, toggle heart color red)
+            const likeButtons = document.querySelectorAll('.like-btn');
+            
+            likeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation(); // prevent clicking card
+                    
+                    const countEl = btn.querySelector('.likes-count');
+                    const heartIcon = btn.querySelector('i');
+                    if (!countEl) return;
+                    
+                    let count = parseInt(btn.dataset.likes || countEl.textContent.trim(), 10);
+                    if (isNaN(count)) count = 50;
+
+                    if (btn.classList.contains('liked')) {
+                        // Unlike: toggle off red color, decrement count
+                        btn.classList.remove('liked');
+                        count = Math.max(0, count - 1);
+                        btn.dataset.likes = count;
+                        countEl.textContent = count;
+                        if (heartIcon) {
+                            heartIcon.style.color = '';
+                        }
+                    } else {
+                        // Like: toggle on red color, increment count
+                        btn.classList.add('liked');
+                        count += 1;
+                        btn.dataset.likes = count;
+                        countEl.textContent = count;
+                        if (heartIcon) {
+                            heartIcon.style.color = '#e74c3c';
+                        }
+                        
+                        // Heart pop animation feedback
+                        btn.classList.add('pop');
+                        setTimeout(() => {
+                            btn.classList.remove('pop');
+                        }, 300);
+                    }
+                });
+            });
+
+            // 2. Category filter tabs logic (All, Cleansers, Serums, Oils, Exfoliators, Hydration, Bundles)
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+
+                    const filterValue = btn.getAttribute('data-filter').toLowerCase();
+
+                    productCards.forEach(card => {
+                        const categories = (card.getAttribute('data-category') || '').toLowerCase().split(' ');
+                        
+                        if (filterValue === 'all' || categories.includes(filterValue)) {
+                            card.style.display = 'flex';
+                            requestAnimationFrame(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0) scale(1)';
+                            });
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px) scale(0.95)';
+                            setTimeout(() => {
+                                if (!categories.includes(btn.getAttribute('data-filter').toLowerCase()) && btn.getAttribute('data-filter').toLowerCase() !== 'all') {
+                                    card.style.display = 'none';
+                                }
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // 3. Quick Add Button Logic with Toast Feedback
+            const toast = document.getElementById('cartToast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMsg = document.getElementById('toastMsg');
+            let toastTimeout = null;
+
+            document.querySelectorAll('.quick-add').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const card = btn.closest('.product-card');
+                    const name = card ? card.querySelector('h4').textContent : 'Item';
+                    const price = card ? card.querySelector('.price').textContent : '';
+
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    btn.style.backgroundColor = '#4CAF50';
+                    btn.style.color = '#FFFFFF';
+
+                    if (toast) {
+                        toastTitle.textContent = 'Added to Bag';
+                        toastMsg.textContent = `${name} (${price})`;
+                        toast.classList.add('show');
+                        
+                        clearTimeout(toastTimeout);
+                        toastTimeout = setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '';
+                    }, 1400);
+                });
+            });
+
+            // 4. Scroll Animations using IntersectionObserver
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in, .fade-up, .slide-in-right, .scale-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // 5. Mobile Navigation Drawer Controls
+            const menuToggle = document.getElementById('menuToggleBtn');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+            const drawerClose = document.getElementById('drawerCloseBtn');
+            const drawerBackdrop = document.getElementById('drawerBackdrop');
+
+            function toggleDrawer(isOpen) {
+                if (mobileDrawer && drawerBackdrop) {
+                    if (isOpen) {
+                        mobileDrawer.classList.add('open');
+                        drawerBackdrop.classList.add('open');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        mobileDrawer.classList.remove('open');
+                        drawerBackdrop.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
+
+            if (menuToggle) menuToggle.addEventListener('click', () => toggleDrawer(true));
+            if (drawerClose) drawerClose.addEventListener('click', () => toggleDrawer(false));
+            if (drawerBackdrop) drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+        });
+    </script>
+</body>
+</html>

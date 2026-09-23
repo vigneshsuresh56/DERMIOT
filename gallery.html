@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - DERMIQT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar System -->
+    <nav class="navbar sticky top-0 z-50 backdrop-blur-md">
+        <button class="menu-icon mobile-only" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        <div class="nav-left desktop-only">
+            <button class="menu-icon" aria-label="Toggle Menu"><i class="fas fa-th-large"></i> MENU &nbsp;&nbsp;|&nbsp;&nbsp;</button>
+            <div class="dropdown">
+                <a href="products.html" class="dropbtn" aria-expanded="false" style="text-decoration:none; color:inherit;">PRODUCTS <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+            </div>
+            <a href="about.html" class="nav-link">ABOUT</a>
+        </div>
+        <a href="index.html" class="nav-logo">DERMIQT</a>
+        <div class="nav-right desktop-only">
+            <a href="reviews.html" class="nav-link">REVIEWS</a>
+            <a href="blog.html" class="nav-link">BLOG</a>
+            <a href="products.html"><button class="btn-shop">SHOP NOW</button></a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-menu-content">
+            <a href="index.html">HOME</a>
+            <a href="products.html">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="reviews.html">REVIEWS</a>
+            <a href="blog.html">BLOG</a>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="section-padding light-bg">
+        <h2 class="elevated" style="text-align:center;">Gallery</h2>
+        <div class="gallery-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; margin-top:2rem;">
+            <img src="https://images.unsplash.com/photo-1522336572468-96c0e2c15f86?auto=format&fit=crop&w=800&q=80" alt="Gallery 1" />
+            <img src="https://images.unsplash.com/photo-1615396899839-c99c14188f60?auto=format&fit=crop&w=400&q=80" alt="Gallery 2" />
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Gallery 3" />
+            <img src="https://images.unsplash.com/photo-1556228720-192b9560f760?auto=format&fit=crop&w=400&q=80" alt="Gallery 4" />
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80" alt="Gallery 5" />
+            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=400&q=80" alt="Gallery 6" />
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

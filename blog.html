@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Journal & Botanical Wisdom | DERMIQT</title>
+    <!-- Brand Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark-mocha: #3D261D;
+            --warm-cream: #F9F4EE;
+            --accent-gold: #F5B800;
+            --neutral-taupe: #EADFD4;
+            --mocha-light: #5A3D31;
+            --mocha-surface: #2E1B14;
+            --text-dark: #2B1810;
+            --text-muted: #6E5A51;
+            --white: #FFFFFF;
+            --card-shadow: 0 12px 36px rgba(61, 38, 29, 0.08);
+            --card-shadow-hover: 0 20px 48px rgba(61, 38, 29, 0.16);
+            --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--warm-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Container */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 1. TOP NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(249, 244, 238, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(61, 38, 29, 0.1);
+            padding: 1rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 8px 24px rgba(61, 38, 29, 0.06);
+            background: rgba(249, 244, 238, 0.98);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--dark-mocha);
+            position: relative;
+            padding: 0.35rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--dark-mocha);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .nav-logo span {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            line-height: 0.5;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+
+        .btn-shop {
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            border: 1px solid var(--dark-mocha);
+            padding: 0.65rem 1.45rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-shop:hover {
+            background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--dark-mocha);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(245, 184, 0, 0.35);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.35rem;
+            color: var(--dark-mocha);
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .mobile-nav-drawer {
+            display: none;
+            flex-direction: column;
+            background: var(--warm-cream);
+            border-top: 1px solid var(--neutral-taupe);
+            padding: 1.5rem 1.5rem 2rem;
+            gap: 1.25rem;
+        }
+
+        .mobile-nav-drawer.open {
+            display: flex;
+        }
+
+        /* 2. PAGE HEADER (HERO) */
+        .page-header {
+            background: linear-gradient(145deg, #3D261D 0%, #2A1812 60%, #1F100B 100%);
+            color: var(--warm-cream);
+            padding: 5.5rem 0 4.5rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(245, 184, 0, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 15% 85%, rgba(234, 223, 212, 0.08) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .header-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 184, 0, 0.15);
+            border: 1px solid rgba(245, 184, 0, 0.35);
+            color: var(--accent-gold);
+            padding: 0.35rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            color: #FFFFFF;
+            margin-bottom: 1.25rem;
+        }
+
+        .page-header h1 em {
+            font-style: italic;
+            color: var(--accent-gold);
+            font-weight: 400;
+        }
+
+        .header-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(249, 244, 238, 0.85);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* Filter Controls */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .filter-btn {
+            background: rgba(249, 244, 238, 0.08);
+            color: rgba(249, 244, 238, 0.85);
+            border: 1px solid rgba(234, 223, 212, 0.25);
+            padding: 0.55rem 1.35rem;
+            border-radius: 999px;
+            font-size: 0.825rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .filter-btn:hover {
+            background: rgba(249, 244, 238, 0.18);
+            color: #FFFFFF;
+            border-color: rgba(245, 184, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            border-color: var(--accent-gold);
+            font-weight: 700;
+            box-shadow: 0 4px 18px rgba(245, 184, 0, 0.35);
+        }
+
+        /* 3. FEATURED ARTICLE SECTION */
+        .featured-section {
+            padding-top: 4.5rem;
+            padding-bottom: 2rem;
+        }
+
+        .section-lead {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2.25rem;
+            border-bottom: 1px solid var(--neutral-taupe);
+            padding-bottom: 1rem;
+        }
+
+        .section-lead-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--dark-mocha);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .section-lead-title i {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+        }
+
+        .featured-card {
+            background: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--neutral-taupe);
+            box-shadow: var(--card-shadow);
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            transition: var(--transition-smooth);
+        }
+
+        .featured-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .featured-img-wrap {
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .featured-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .featured-card:hover .featured-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--dark-mocha);
+            color: var(--accent-gold);
+            font-size: 0.725rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.45rem 1.15rem;
+            border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .featured-content {
+            padding: 3rem 2.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-meta-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .featured-meta-top span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .featured-meta-top .category-pill {
+            background: var(--neutral-taupe);
+            color: var(--dark-mocha);
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.725rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .featured-title {
+            font-size: clamp(1.8rem, 2.7vw, 2.4rem);
+            line-height: 1.25;
+            color: var(--dark-mocha);
+            margin-bottom: 1.15rem;
+        }
+
+        .featured-title a:hover {
+            color: var(--mocha-light);
+        }
+
+        .featured-excerpt {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .featured-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--neutral-taupe);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neutral-taupe);
+        }
+
+        .author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--dark-mocha);
+        }
+
+        .author-info p {
+            font-size: 0.775rem;
+            color: var(--text-muted);
+        }
+
+        /* 4. PRODUCT GRID / BLOG CARD GRID */
+        .journal-grid-section {
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid var(--neutral-taupe);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(245, 184, 0, 0.45);
+        }
+
+        .product-img-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--neutral-taupe);
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.06);
+        }
+
+        .category-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(61, 38, 29, 0.92);
+            color: var(--warm-cream);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .read-time-pill {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(249, 244, 238, 0.94);
+            color: var(--dark-mocha);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card-body {
+            padding: 1.5rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.35;
+            color: var(--dark-mocha);
+            margin-bottom: 0.75rem;
+            transition: color 0.25s ease;
+        }
+
+        .product-card:hover .article-title {
+            color: var(--mocha-light);
+        }
+
+        .article-excerpt {
+            font-size: 0.865rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.35rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(234, 223, 212, 0.7);
+        }
+
+        .author-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .author-mini-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--neutral-taupe);
+        }
+
+        .author-mini-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-mocha);
+        }
+
+        /* LIKE BUTTON */
+        .like-btn {
+            background: rgba(249, 244, 238, 0.95);
+            border: 1px solid var(--neutral-taupe);
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            user-select: none;
+        }
+
+        .like-btn i {
+            font-size: 0.95rem;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #C4A496;
+        }
+
+        .like-btn:hover {
+            border-color: #E27373;
+            color: var(--dark-mocha);
+            transform: scale(1.05);
+        }
+
+        .like-btn:hover i {
+            color: #E53E3E;
+        }
+
+        .like-btn.liked {
+            background: #FFF2F2;
+            border-color: #F8B4B4;
+            color: #D32F2F;
+        }
+
+        .like-btn.liked i {
+            color: #E53E3E;
+            transform: scale(1.2);
+            animation: heartPulse 0.4s ease-out;
+        }
+
+        @keyframes heartPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1.2); }
+        }
+
+        .likes-count {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* 5. POPULAR TAGS SECTION */
+        .tags-section {
+            background: #F3EAE0;
+            border-top: 1px solid var(--neutral-taupe);
+            border-bottom: 1px solid var(--neutral-taupe);
+            padding: 3.5rem 0;
+            text-align: center;
+        }
+
+        .tags-header {
+            margin-bottom: 1.75rem;
+        }
+
+        .tags-header h3 {
+            font-size: 1.75rem;
+            color: var(--dark-mocha);
+            margin-bottom: 0.5rem;
+        }
+
+        .tags-header p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .tags-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .popular-tag-btn {
+            background: var(--white);
+            color: var(--dark-mocha);
+            border: 1px solid var(--neutral-taupe);
+            padding: 0.65rem 1.45rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            box-shadow: 0 4px 12px rgba(61, 38, 29, 0.04);
+        }
+
+        .popular-tag-btn:hover {
+            background: var(--dark-mocha);
+            color: var(--accent-gold);
+            border-color: var(--dark-mocha);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(61, 38, 29, 0.12);
+        }
+
+        .popular-tag-btn.active-tag {
+            background: var(--dark-mocha);
+            color: var(--accent-gold);
+            border-color: var(--dark-mocha);
+        }
+
+        /* 6. NEWSLETTER SIGNUP SECTION */
+        .newsletter-section {
+            padding: 5.5rem 0;
+            background: var(--warm-cream);
+        }
+
+        .newsletter-card {
+            background: linear-gradient(135deg, #3D261D 0%, #291811 100%);
+            color: var(--warm-cream);
+            border-radius: 2rem;
+            padding: 4rem 3rem;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(61, 38, 29, 0.18);
+        }
+
+        .newsletter-card::before {
+            content: '';
+            position: absolute;
+            right: -100px;
+            top: -100px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 184, 0, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .newsletter-info h2 {
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .newsletter-info h2 em {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .newsletter-info p {
+            font-size: 1rem;
+            color: rgba(249, 244, 238, 0.85);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input-group {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .newsletter-input-group i {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A38C82;
+            font-size: 1rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.95rem 1.25rem 0.95rem 3rem;
+            border-radius: 999px;
+            border: 1px solid rgba(234, 223, 212, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(249, 244, 238, 0.55);
+        }
+
+        .newsletter-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.25);
+        }
+
+        .btn-subscribe {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.95rem 2rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-subscribe:hover {
+            background: #FFE066;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 184, 0, 0.4);
+        }
+
+        .newsletter-photo-frame {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+            height: 320px;
+        }
+
+        .newsletter-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .newsletter-toast {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            background: rgba(245, 184, 0, 0.2);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* 7. VISUAL RITUALS STRIP (COMMUNITY / INSTAGRAM GALLERY) */
+        .visual-strip-section {
+            padding: 3rem 0 5rem;
+        }
+
+        .strip-head {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .strip-head h3 {
+            font-size: 1.85rem;
+            color: var(--dark-mocha);
+            margin-bottom: 0.5rem;
+        }
+
+        .strip-head p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .visual-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .visual-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .visual-item {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            box-shadow: var(--card-shadow);
+        }
+
+        .visual-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 38, 29, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-cream);
+            font-size: 1.35rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .visual-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .visual-item:hover .visual-overlay {
+            opacity: 1;
+        }
+
+        /* 8. FOOTER */
+        footer {
+            background: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding: 4.5rem 0 2rem;
+            border-top: 1px solid rgba(234, 223, 212, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .footer-brand h3 span {
+            color: var(--accent-gold);
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(249, 244, 238, 0.7);
+            line-height: 1.7;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.85rem;
+        }
+
+        .social-icon-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(234, 223, 212, 0.2);
+            display: grid;
+            place-items: center;
+            color: var(--warm-cream);
+            transition: var(--transition-smooth);
+            font-size: 0.9rem;
+        }
+
+        .social-icon-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(249, 244, 238, 0.75);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #FFFFFF;
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(234, 223, 212, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(249, 244, 238, 0.5);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+            .featured-img-wrap {
+                min-height: 320px;
+            }
+            .newsletter-card {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+            }
+            .newsletter-photo-frame {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-left, .nav-right .nav-link, .nav-right .btn-shop-link {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .section-padding {
+                padding: 3.5rem 0;
+            }
+            .featured-content {
+                padding: 2rem 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="navbar" id="siteNavbar">
+        <div class="container nav-inner">
+            <div class="nav-left">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+
+            <a href="index.html" class="nav-logo">
+                DERMIQT<span>.</span>
+            </a>
+
+            <div class="nav-right">
+                <a href="reviews.html" class="nav-link">Reviews</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="products.html" class="btn-shop-link">
+                    <button class="btn-shop">
+                        <i class="fas fa-shopping-bag"></i> Shop Now
+                    </button>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div class="mobile-nav-drawer" id="mobileDrawer">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="reviews.html" class="nav-link">Reviews</a>
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="products.html" style="margin-top: 0.5rem;">
+                <button class="btn-shop" style="width: 100%; justify-content: center;">
+                    <i class="fas fa-shopping-bag"></i> Shop Now
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 2. HERO HEADER SECTION -->
+    <header class="page-header fade-in">
+        <div class="container">
+            <div class="header-tag">
+                <i class="fas fa-feather-alt"></i> Botanical Wisdom & Dermal Health
+            </div>
+            <h1 class="fade-up">
+                Skincare <em>Journal</em>
+            </h1>
+            <p class="header-subtitle fade-up">
+                Explore holistic morning rituals, dermatological breakthroughs, and natural botanical science crafted to elevate your daily glow.
+            </p>
+
+            <!-- Category Filter Bar -->
+            <div class="filter-bar fade-up">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-sparkles"></i> All Articles
+                </button>
+                <button class="filter-btn" data-category="Routine">
+                    <i class="fas fa-sun"></i> Routine
+                </button>
+                <button class="filter-btn" data-category="Ingredients">
+                    <i class="fas fa-leaf"></i> Ingredients
+                </button>
+                <button class="filter-btn" data-category="Science">
+                    <i class="fas fa-dna"></i> Science
+                </button>
+                <button class="filter-btn" data-category="Tips">
+                    <i class="fas fa-lightbulb"></i> Tips
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. FEATURED ARTICLE SECTION -->
+    <section class="featured-section section-padding">
+        <div class="container">
+            <div class="section-lead fade-up">
+                <h2 class="section-lead-title">
+                    <i class="fas fa-star"></i> Featured Journal Entry
+                </h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+                    Curated by DERMIQT Labs
+                </span>
+            </div>
+
+            <!-- Large Featured Card (Images 1 & 2) -->
+            <article class="featured-card fade-up">
+                <div class="featured-img-wrap">
+                    <!-- Image 1: Main featured cover -->
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1000&q=80" alt="Botanical dropper bottle with herbal extracts">
+                    <span class="featured-badge">
+                        <i class="fas fa-award"></i> Editor's Choice
+                    </span>
+                </div>
+
+                <div class="featured-content">
+                    <div>
+                        <div class="featured-meta-top">
+                            <span class="category-pill">Routine & Science</span>
+                            <span><i class="far fa-calendar-alt"></i> Sep 18, 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+
+                        <h2 class="featured-title">
+                            <a href="#article-featured">The Art of Slow Skincare: Harmonizing Ancient Botanicals with Modern Cellular Science</a>
+                        </h2>
+
+                        <p class="featured-excerpt">
+                            True dermal longevity transcends quick surface fixes. By pairing lipid-identical plant ceramides with multi-phase hyaluronic hydration, our research reveals how mindful daily rituals can activate sustained cellular renewal and timeless luminosity.
+                        </p>
+                    </div>
+
+                    <div class="featured-footer">
+                        <div class="author-box">
+                            <!-- Image 2: Featured author avatar -->
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" alt="Dr. Elena Vance" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Dr. Elena Vance</h4>
+                                <p>Head of Botanical Formulation</p>
+                            </div>
+                        </div>
+
+                        <button class="like-btn" data-article-id="featured" aria-label="Like featured article">
+                            <i class="far fa-heart"></i>
+                            <span class="likes-count">148</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 4. ARTICLE GRID SECTION (8 Posts with exact titles & like counts) -->
+    <section class="journal-grid-section">
+        <div class="container">
+            <div class="section-lead fade-up">
+                <h2 class="section-lead-title">
+                    <i class="fas fa-book-open"></i> Latest Articles & Insights
+                </h2>
+                <span id="articleCountNotice" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">
+                    Showing 8 articles
+                </span>
+            </div>
+
+            <!-- Product Grid with 8 Blog Post Cards -->
+            <div class="product-grid" id="blogGrid">
+
+                <!-- Article 1: Routine (Images 3 & 4) -->
+                <article class="product-card fade-up" data-category="Routine">
+                    <div class="product-img-container">
+                        <!-- Image 3: Cover image 1 -->
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80" alt="The Root of Radiance: Morning Routine">
+                        <span class="category-tag">Routine</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 4 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">The Root of Radiance: Morning Routine</h3>
+                            <p class="article-excerpt">
+                                Awaken your skin's protective lipid barrier with gentle cold infusions, antioxidant elixirs, and circadian-aligned hydration.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 4: Author avatar 1 -->
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Aria Montgomery" class="author-mini-avatar">
+                                <span class="author-mini-name">Aria Montgomery</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-1" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">89</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2: Ingredients (Images 5 & 6) -->
+                <article class="product-card fade-up" data-category="Ingredients">
+                    <div class="product-img-container">
+                        <!-- Image 5: Cover image 2 -->
+                        <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80" alt="Benefits of Avocado Oil for Skin">
+                        <span class="category-tag">Ingredients</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">Benefits of Avocado Oil for Skin</h3>
+                            <p class="article-excerpt">
+                                Rich in oleic acid and bio-sterolins, cold-pressed avocado oil repairs micro-tears and deeply revitalizes dry dermis.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 6: Author avatar 2 -->
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Maya Lin" class="author-mini-avatar">
+                                <span class="author-mini-name">Maya Lin</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-2" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">67</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3: Science (Images 7 & 8) -->
+                <article class="product-card fade-up" data-category="Science">
+                    <div class="product-img-container">
+                        <!-- Image 7: Cover image 3 -->
+                        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=400&q=80" alt="Science Behind Hydration">
+                        <span class="category-tag">Science</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">Science Behind Hydration</h3>
+                            <p class="article-excerpt">
+                                Exploring multi-molecular hyaluronic chains, osmoprotectants, and cellular water pathways for sustained plumpness.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 8: Author avatar 3 -->
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Dr. Julian Thorne" class="author-mini-avatar">
+                                <span class="author-mini-name">Dr. Julian Thorne</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-3" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">74</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4: Routine (Images 9 & 10) -->
+                <article class="product-card fade-up" data-category="Routine">
+                    <div class="product-img-container">
+                        <!-- Image 9: Cover image 4 -->
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80" alt="5 Steps to Glowing Skin">
+                        <span class="category-tag">Routine</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 3 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">5 Steps to Glowing Skin</h3>
+                            <p class="article-excerpt">
+                                A streamlined, dermatologist-approved ritual that eliminates pore congestion while preserving natural moisture lipids.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 10: Author avatar 4 -->
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Camila Reyes" class="author-mini-avatar">
+                                <span class="author-mini-name">Camila Reyes</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-4" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">92</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5: Ingredients (Images 11 & 12) -->
+                <article class="product-card fade-up" data-category="Ingredients">
+                    <div class="product-img-container">
+                        <!-- Image 11: Cover image 5 -->
+                        <img src="https://images.unsplash.com/photo-1608248593842-8d765870a4c2?auto=format&fit=crop&w=400&q=80" alt="Why Natural Ingredients Matter">
+                        <span class="category-tag">Ingredients</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">Why Natural Ingredients Matter</h3>
+                            <p class="article-excerpt">
+                                Pure botanical extracts mirror your skin's biological matrix, reducing irritant cascades and synthetic oxidative load.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 12: Author avatar 5 -->
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=120&q=80" alt="Sienna Brooks" class="author-mini-avatar">
+                                <span class="author-mini-name">Sienna Brooks</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-5" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">58</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6: Tips (Images 13 & 14) -->
+                <article class="product-card fade-up" data-category="Tips">
+                    <div class="product-img-container">
+                        <!-- Image 13: Cover image 6 -->
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Winter Skincare Essentials">
+                        <span class="category-tag">Tips</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 7 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">Winter Skincare Essentials</h3>
+                            <p class="article-excerpt">
+                                Shield your lipid barrier against biting cold winds and dry heating systems with ceramide-infused protective balms.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 14: Author avatar 6 -->
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Lucas Sterling" class="author-mini-avatar">
+                                <span class="author-mini-name">Lucas Sterling</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-6" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">83</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 7: Science (Images 15 & 16) -->
+                <article class="product-card fade-up" data-category="Science">
+                    <div class="product-img-container">
+                        <!-- Image 15: Cover image 7 -->
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=400&q=80" alt="The Power of Vitamin C">
+                        <span class="category-tag">Science</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 4 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">The Power of Vitamin C</h3>
+                            <p class="article-excerpt">
+                                Discover how stabilized L-ascorbic derivatives counteract photo-aging, boost collagen synthesis, and even skin tone.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 16: Author avatar 7 -->
+                                <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=120&q=80" alt="Dr. Naomi Patel" class="author-mini-avatar">
+                                <span class="author-mini-name">Dr. Naomi Patel</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-7" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">71</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 8: Tips (Images 17 & 18) -->
+                <article class="product-card fade-up" data-category="Tips">
+                    <div class="product-img-container">
+                        <!-- Image 17: Cover image 8 -->
+                        <img src="https://images.unsplash.com/photo-1615396899839-c99c14188f60?auto=format&fit=crop&w=400&q=80" alt="Understanding Your Skin Type">
+                        <span class="category-tag">Tips</span>
+                        <span class="read-time-pill"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <h3 class="article-title">Understanding Your Skin Type</h3>
+                            <p class="article-excerpt">
+                                Decode your sebaceous balance, trans-epidermal moisture loss, and sensitivities to curate a bespoke botanical care plan.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="author-mini">
+                                <!-- Image 18: Author avatar 8 -->
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Chloe Dubois" class="author-mini-avatar">
+                                <span class="author-mini-name">Chloe Dubois</span>
+                            </div>
+                            <button class="like-btn" data-article-id="post-8" aria-label="Like article">
+                                <i class="far fa-heart"></i>
+                                <span class="likes-count">65</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. POPULAR TAGS SECTION -->
+    <section class="tags-section">
+        <div class="container">
+            <div class="tags-header fade-up">
+                <h3>Explore Popular Topics</h3>
+                <p>Curated threads for intentional, nature-first skincare devotees</p>
+            </div>
+
+            <div class="tags-wrapper fade-up">
+                <button class="popular-tag-btn" data-tag="Skincare">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>Skincare
+                </button>
+                <button class="popular-tag-btn" data-tag="Organic">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>Organic
+                </button>
+                <button class="popular-tag-btn" data-tag="Routine">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>Routine
+                </button>
+                <button class="popular-tag-btn" data-tag="Hydration">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>Hydration
+                </button>
+                <button class="popular-tag-btn" data-tag="Natural">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>Natural
+                </button>
+                <button class="popular-tag-btn" data-tag="SelfCare">
+                    <i class="fas fa-hashtag" style="color: var(--accent-gold);"></i>SelfCare
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. NEWSLETTER SIGNUP SECTION (Image 19) -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card fade-up">
+                <div class="newsletter-info">
+                    <h2>Join the <em>DERMIQT</em> Journal</h2>
+                    <p>
+                        Receive weekly formulation breakthroughs, seasonal ritual guides, and exclusive early access to limited small-batch botanical drops.
+                    </p>
+
+                    <form class="newsletter-form" id="journalNewsletterForm">
+                        <div class="newsletter-input-group">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" class="newsletter-input" id="subscriberEmail" placeholder="Enter your email address..." required>
+                        </div>
+                        <button type="submit" class="btn-subscribe">
+                            <span>Subscribe</span> <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    <div class="newsletter-toast" id="newsletterSuccessToast">
+                        <i class="fas fa-check-circle"></i> Thank you for joining! A welcome ritual guide is on its way to your inbox.
+                    </div>
+                </div>
+
+                <!-- Image 19: Newsletter accent ritual image -->
+                <div class="newsletter-photo-frame">
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=500&q=80" alt="DERMIQT organic botanical ingredients and serum ritual">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. VISUAL RITUALS COMMUNITY GALLERY (Images 20 to 25) -->
+    <section class="visual-strip-section">
+        <div class="container">
+            <div class="strip-head fade-up">
+                <h3>Daily Rituals in Motion</h3>
+                <p>Glimpses into our community's pure skincare experiences #DERMIQTGlow</p>
+            </div>
+
+            <div class="visual-grid fade-up">
+                <!-- Image 20 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=400&q=80" alt="Clay facial treatment ritual">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+                <!-- Image 21 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80" alt="Facial cleanser wash and fresh dew drops">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+                <!-- Image 22 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1556228720-192b9560f760?auto=format&fit=crop&w=400&q=80" alt="Minimalist glass beauty vials">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+                <!-- Image 23 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1614859324967-bdf4736f87ea?auto=format&fit=crop&w=400&q=80" alt="Botanical cold process soap textures">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+                <!-- Image 24 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=400&q=80" alt="Calming bath flowers and herbal waters">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+                <!-- Image 25 -->
+                <div class="visual-item">
+                    <img src="https://images.unsplash.com/photo-1512290900672-1f023330ff25?auto=format&fit=crop&w=400&q=80" alt="Organic botanicals and essential oils">
+                    <div class="visual-overlay"><i class="fab fa-instagram"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>DERMIQT<span>.</span></h3>
+                    <p>
+                        Elevating daily skincare routines into restorative rituals through conscious formulation, ethical harvesting, and dermatological integrity.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Product Catalog</a></li>
+                        <li><a href="about.html">About DERMIQT</a></li>
+                        <li><a href="reviews.html">Verified Reviews</a></li>
+                        <li><a href="blog.html">Journal & Stories</a></li>
+                        <li><a href="gallery.html">Visual Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-filter-link" data-category="Routine">Daily Routines</a></li>
+                        <li><a href="#" class="footer-filter-link" data-category="Ingredients">Ingredient Glossary</a></li>
+                        <li><a href="#" class="footer-filter-link" data-category="Science">Skin Biology</a></li>
+                        <li><a href="#" class="footer-filter-link" data-category="Tips">Seasonal Care Tips</a></li>
+                        <li><a href="products.html">Antioxidant Serums</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Botanical Ethics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">100% Cruelty-Free</a></li>
+                        <li><a href="#">Sustainably Harvested</a></li>
+                        <li><a href="#">Zero Synthetic Fillers</a></li>
+                        <li><a href="#">Recyclable Amber Glass</a></li>
+                        <li><a href="#">Carbon Neutral Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DERMIQT Organic Skincare. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Ritual</a>
+                    <a href="#">Transparency Report</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INLINE SCRIPT FOR LIKE COUNTERS & DYNAMIC INTERACTIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. LIKE BUTTON INTERACTIVITY
+            const likeButtons = document.querySelectorAll('.like-btn');
+
+            likeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const countSpan = btn.querySelector('.likes-count');
+                    const icon = btn.querySelector('i');
+                    let currentLikes = parseInt(countSpan.textContent, 10) || 0;
+                    const isLiked = btn.classList.contains('liked');
+
+                    if (!isLiked) {
+                        btn.classList.add('liked');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        countSpan.textContent = currentLikes + 1;
+                    } else {
+                        btn.classList.remove('liked');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        countSpan.textContent = Math.max(0, currentLikes - 1);
+                    }
+                });
+            });
+
+            // 2. CATEGORY FILTERING (.filter-btn)
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const articles = document.querySelectorAll('#blogGrid .product-card');
+            const notice = document.getElementById('articleCountNotice');
+
+            function applyFilter(category) {
+                // Update active button state
+                filterBtns.forEach(b => {
+                    if (b.getAttribute('data-category').toLowerCase() === category.toLowerCase()) {
+                        b.classList.add('active');
+                    } else {
+                        b.classList.remove('active');
+                    }
+                });
+
+                let visibleCount = 0;
+                articles.forEach(article => {
+                    const articleCat = article.getAttribute('data-category');
+                    if (category.toLowerCase() === 'all' || articleCat.toLowerCase() === category.toLowerCase()) {
+                        article.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+
+                if (notice) {
+                    notice.textContent = `Showing ${visibleCount} article${visibleCount === 1 ? '' : 's'}`;
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const selectedCategory = btn.getAttribute('data-category');
+                    applyFilter(selectedCategory);
+                });
+            });
+
+            // Footer category links
+            document.querySelectorAll('.footer-filter-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const cat = link.getAttribute('data-category');
+                    applyFilter(cat);
+                    window.scrollTo({
+                        top: document.getElementById('blogGrid').offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // 3. POPULAR TAGS INTERACTIVITY
+            const tagBtns = document.querySelectorAll('.popular-tag-btn');
+            tagBtns.forEach(tagBtn => {
+                tagBtn.addEventListener('click', () => {
+                    const tagName = tagBtn.getAttribute('data-tag').toLowerCase();
+                    const wasActive = tagBtn.classList.contains('active-tag');
+
+                    tagBtns.forEach(t => t.classList.remove('active-tag'));
+
+                    if (!wasActive) {
+                        tagBtn.classList.add('active-tag');
+
+                        // Map tag to category if applicable, else filter articles containing text
+                        let matchedCount = 0;
+                        articles.forEach(card => {
+                            const cardText = card.textContent.toLowerCase();
+                            const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+
+                            if (cardCategory.includes(tagName) || cardText.includes(tagName)) {
+                                card.style.display = 'flex';
+                                matchedCount++;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+
+                        if (notice) {
+                            notice.textContent = `Filtered by #${tagBtn.getAttribute('data-tag')} (${matchedCount} found)`;
+                        }
+
+                        // Scroll smoothly to blog grid
+                        window.scrollTo({
+                            top: document.getElementById('blogGrid').offsetTop - 120,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        // Revert to all
+                        applyFilter('all');
+                    }
+                });
+            });
+
+            // 4. NEWSLETTER FORM SUBMISSION
+            const newsletterForm = document.getElementById('journalNewsletterForm');
+            const successToast = document.getElementById('newsletterSuccessToast');
+            const emailInput = document.getElementById('subscriberEmail');
+
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (emailInput && emailInput.value) {
+                        newsletterForm.style.display = 'none';
+                        successToast.style.display = 'block';
+                    }
+                });
+            }
+
+            // 5. MOBILE MENU TOGGLE
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+
+            if (mobileBtn && mobileDrawer) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileDrawer.classList.toggle('open');
+                    const icon = mobileBtn.querySelector('i');
+                    if (mobileDrawer.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // 6. NAVBAR SCROLL EFFECT
+            const navbar = document.getElementById('siteNavbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

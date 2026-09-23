@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERMIQT - Skincare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar System -->
+    <nav class="navbar sticky top-0 z-50 backdrop-blur-md">
+        <button class="menu-icon mobile-only" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        <div class="nav-left desktop-only">
+            <button class="menu-icon" aria-label="Toggle Menu"><i class="fas fa-th-large"></i> MENU &nbsp;&nbsp;|&nbsp;&nbsp;</button>
+            <div class="dropdown">
+                <a href="products.html" class="dropbtn" aria-expanded="false" style="text-decoration:none; color:inherit;">PRODUCTS <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+            </div>
+            <a href="about.html" class="nav-link">ABOUT</a>
+        </div>
+        <a href="index.html" class="nav-logo">DERMIQT</a>
+        <div class="nav-right desktop-only">
+            <a href="reviews.html" class="nav-link">REVIEWS</a>
+            <a href="blog.html" class="nav-link">BLOG</a>
+            <a href="products.html"><button class="btn-shop">SHOP NOW</button></a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <button class="close-menu"><i class="fas fa-times"></i></button>
+        <div class="mobile-menu-content">
+            <a href="index.html">HOME</a>
+            <a href="products.html">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="reviews.html">REVIEWS</a>
+            <a href="blog.html">BLOG</a>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero Banner -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-left fade-in">
+                <div class="small-tag"><i class="fas fa-leaf"></i> Care your skin naturally</div>
+                <h1>Care Beyond<br>Boundaries</h1>
+                <div class="feature-box">
+                    <div class="avocado-icon-container">
+                        <img src="https://images.unsplash.com/photo-1589923188900-43cd876da635?auto=format&fit=crop&w=200&q=80" alt="Avocado" class="circle-icon">
+                    </div>
+                    <p>CLEAR EXTRA OIL<br>PRESERVE THE YOUTH</p>
+                </div>
+            </div>
+            
+            <div class="hero-center scale-in">
+                <div class="oval-container">
+                    <div class="oval-image">
+                        <!-- Updated to a highly reliable Unsplash beauty image to prevent empty circle -->
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1200&q=80" alt="Skincare routine" class="hero-oval-img">
+                    </div>
+                    <a href="products.html"><button class="circle-btn">Shop<br>Now</button></a>
+                </div>
+            </div>
+
+            <div class="hero-right slide-in-right">
+                <div class="badge">
+                    <div class="circle-text-badge spin-slow">
+                        <svg viewBox="0 0 100 100" width="120" height="120">
+                            <defs>
+                              <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                            </defs>
+                            <text font-size="11" letter-spacing="1">
+                              <textPath href="#circle" fill="#fff">
+                                PRODUCT FOR BEAUTY SKINCARE QUALITY
+                              </textPath>
+                            </text>
+                        </svg>
+                        <i class="fas fa-leaf center-icon"></i>
+                    </div>
+                </div>
+                <div class="text-block">
+                    <p class="subtitle">Natural Growth</p>
+                    <h2>Bold Skin<br>Begins with<br>Balance</h2>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bottom fade-up">
+            <div class="bottom-left">
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Organic</p>
+                </div>
+                <div class="text">
+                    <p>Let your skin glow the<br>natural way</p>
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div class="text">
+                    <p><i class="fas fa-leaf" style="color: var(--accent-gold);"></i> Natural facial skincare must<br>be in every beauty</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 2: Statement Banner & Quick Preview -->
+    <section class="statement-section section-padding">
+        <div class="statement-header fade-up">
+            <h2>Pure Skincare</h2>
+            <div class="statement-preview">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Detail 1">
+                <img src="https://images.unsplash.com/photo-1556228720-192b9560f760?auto=format&fit=crop&w=150&q=80" alt="Detail 2">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=150&q=80" alt="Detail 3">
+                <a href="products.html" class="see-more">SEE MORE &gt;</a>
+            </div>
+        </div>
+        <h2 class="elevated fade-up">Elevated Naturally</h2>
+        <div class="statement-text fade-in">
+            <p>Let your skin naturally renew itself,<br>apply every day for a clean, youthful<br>face everybody!</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Dual Feature Cards Section -->
+    <section class="feature-cards-section section-padding pt-0">
+        <div class="cards-grid">
+            <!-- Left Card -->
+            <div class="feature-card left-card fade-up">
+                <div class="card-content">
+                    <h3>Ageless starts<br>with care</h3>
+                    <div class="card-bottom">
+                        <span class="powered-by"><i class="fas fa-bolt"></i> POWERED BY</span>
+                        <p>Daily care keeps your<br>glow timeless</p>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Serum Bottle" class="featured-product-img">
+                <div class="yellow-circle-badge">Pure<br>Skincare</div>
+            </div>
+            
+            <!-- Right Card -->
+            <div class="feature-card right-card fade-up" style="transition-delay: 0.2s;">
+                <div class="card-header">
+                    <h3>Everyday care creates<br>timeless skin</h3>
+                    <span class="brand-cursive">Lumière</span>
+                </div>
+                <div class="card-images">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1614859324967-bdf4736f87ea?auto=format&fit=crop&w=300&q=80" alt="Soap context">
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=300&q=80" alt="Soap packaging">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Dynamic Shop & Product Catalog Block -->
+    <section class="shop-section section-padding">
+        <div class="shop-header fade-in">
+            <h2>Your next favorite<br>right here</h2>
+            <div class="category-filters">
+                <span class="filter-label">BEAUTY CARE:</span>
+                <button class="filter-btn">#Healthcare</button>
+                <button class="filter-btn">#Skincare</button>
+                <button class="filter-btn active">#SelfCare</button>
+                <button class="filter-btn">#Beauty</button>
+            </div>
+        </div>
+        <div class="product-grid">
+            <div class="product-card fade-up" style="transition-delay: 0.1s;">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Sun Beauty Oil">
+                    <button class="quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h4>Sun Beauty Oil</h4>
+                    <span class="price">$32.00</span>
+                </div>
+            </div>
+            <div class="product-card fade-up" style="transition-delay: 0.2s;">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1608248593842-8d765870a4c2?auto=format&fit=crop&w=400&q=80" alt="Exfoliator Gel">
+                    <button class="quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h4>Exfoliator Gel</h4>
+                    <span class="price">$24.00</span>
+                </div>
+            </div>
+            <div class="product-card fade-up" style="transition-delay: 0.3s;">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=400&q=80" alt="Rose Dermure">
+                    <button class="quick-add">Quick Add</button>
+                </div>
+                <div class="product-info">
+                    <h4>Rose Dermure</h4>
+                    <span class="price">$35.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Brand Philosophy & Metric Callout -->
+    <section class="philosophy-section">
+        <div class="philosophy-left fade-in">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Model applying serum">
+        </div>
+        <div class="philosophy-right slide-in-right">
+            <h3>Skin glows when<br>the soul does</h3>
+            <p>Great skin doesn't come from many products, just the right ones that work together.</p>
+            <div class="metric-row">
+                <div class="metric-item">
+                    <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
+                    <p>Small Product<br>Care Made</p>
+                </div>
+                <div class="metric-item highlight">
+                    <h2>29%</h2>
+                    <p>New Discounts</p>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <a href="products.html"><button class="btn-shop">GET GLOWING</button></a>
+                <a href="about.html" class="btn-text">LEARN MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6 & 7: Grid Layout for Bottom Sections -->
+    <section class="bottom-bento section-padding">
+        
+        <!-- Section 6: Media Stories -->
+        <div class="bento-box media-stories fade-up">
+            <div class="story-content">
+                <h2>Powerful skin<br>solutions visible<br>radiance</h2>
+                <button class="play-btn">
+                    <i class="fas fa-play-circle"></i> WATCH OUR STORIES
+                </button>
+                <div class="sub-callout mt-4">
+                    <h4>Science-backed hydration real results</h4>
+                    <p>Great skin doesn't need tons. It just a few things that work well together.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-box hydration-images fade-up" style="transition-delay: 0.1s;">
+            <div class="mini-card">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=300&q=80" alt="Cream">
+                <p>Rapid wrinkle repair cream</p>
+            </div>
+            <div class="mini-card">
+                <img src="https://images.unsplash.com/photo-1615396899839-c99c14188f60?auto=format&fit=crop&w=300&q=80" alt="Man">
+                <p>Beauty begins with skincare</p>
+            </div>
+        </div>
+
+        <!-- Section 7: Routine -->
+        <div class="bento-box routine-left fade-up" style="transition-delay: 0.2s;">
+            <p class="subtitle">Original Skincare Lotion</p>
+            <h3>For Healthy, Glowing Skin</h3>
+            <p class="italic-text">Skincare Is Not Optional</p>
+            
+            <div class="metric-box dark-box mt-4">
+                <p>Healthy Glowing Skin</p>
+                <h2>75% <span class="small-text">Growth</span></h2>
+            </div>
+        </div>
+
+        <div class="bento-box routine-right fade-up" style="transition-delay: 0.3s;">
+            <div class="routine-header">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=300&q=80" alt="Model in clay mask" class="routine-avatar">
+                <h3>Routine is the root of radiance</h3>
+            </div>
+            <div class="routine-products">
+                <div class="product-thumb">
+                    <p>Wellness in Mind and Body</p>
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80" alt="Jar">
+                </div>
+                <div class="product-thumb">
+                    <p>Natural Essence</p>
+                    <img src="https://images.unsplash.com/photo-1608248593842-8d765870a4c2?auto=format&fit=crop&w=200&q=80" alt="Bottle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About DERMIQT | Pure Botanical Skincare & Heritage</title>
+    <!-- Brand Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Playfair Display + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Design Tokens & Theme Variables */
+        :root {
+            --dark-mocha: #3D261D;
+            --warm-cream: #F9F4EE;
+            --accent-gold: #F5B800;
+            --neutral-taupe: #EADFD4;
+            --mocha-light: #5A3D31;
+            --mocha-surface: #2E1B14;
+            --text-dark: #2B1810;
+            --text-muted: #6E5A51;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --card-shadow: 0 10px 30px rgba(61, 38, 29, 0.07);
+            --card-shadow-hover: 0 18px 40px rgba(61, 38, 29, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--warm-cream);
+            color: var(--text-dark);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--dark-mocha);
+            line-height: 1.25;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: var(--font-body);
+            border: none;
+            background: none;
+        }
+
+        /* Container & Section Padding */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5.5rem 0;
+        }
+
+        .section-header-center {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .eyebrow-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: rgba(245, 184, 0, 0.12);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(245, 184, 0, 0.25);
+        }
+
+        .section-header-center h2 {
+            font-size: clamp(2rem, 3.8vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header-center p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Animation utilities */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translate(0) !important;
+        }
+
+        /* =========================================
+           1. TOP NAVIGATION
+           ========================================= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.15rem 3.5rem;
+            background-color: rgba(61, 38, 29, 0.98);
+            color: var(--warm-cream);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(249, 244, 238, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .navbar button, .navbar a {
+            color: var(--warm-cream);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .navbar a.nav-link:hover, .navbar button.menu-icon:hover {
+            color: var(--accent-gold);
+        }
+
+        .navbar a.nav-link.active {
+            color: var(--accent-gold);
+            position: relative;
+        }
+
+        .navbar a.nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .nav-logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-family: var(--font-heading);
+            color: var(--warm-cream);
+            transition: var(--transition);
+        }
+
+        .nav-logo:hover {
+            color: var(--accent-gold);
+        }
+
+        .menu-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-shop {
+            background-color: var(--accent-gold) !important;
+            color: var(--dark-mocha) !important;
+            padding: 0.65rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 700 !important;
+            font-size: 0.8rem !important;
+            letter-spacing: 1px;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(245, 184, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-shop:hover {
+            transform: translateY(-2px) scale(1.03);
+            background-color: #ffd24d !important;
+            box-shadow: 0 6px 20px rgba(245, 184, 0, 0.4);
+        }
+
+        /* Mobile Drawer */
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            z-index: 2000;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.45);
+        }
+
+        .mobile-nav-drawer.open {
+            transform: translateX(320px);
+        }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(249, 244, 238, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .drawer-close {
+            color: var(--warm-cream);
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .drawer-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            flex: 1;
+        }
+
+        .drawer-link {
+            color: var(--warm-cream);
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .drawer-link:hover, .drawer-link.active {
+            color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .drawer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* =========================================
+           2. HERO HEADER (.page-header)
+           ========================================= */
+        .page-header {
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding-top: 140px;
+            padding-bottom: 75px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(245, 184, 0, 0.15);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(245, 184, 0, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header .header-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            background: rgba(245, 184, 0, 0.12);
+            padding: 0.45rem 1.3rem;
+            border-radius: 50px;
+            border: 1px solid rgba(245, 184, 0, 0.25);
+        }
+
+        .page-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--warm-cream);
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--neutral-taupe);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Hero Badges Strip */
+        .hero-badges-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 2.8rem;
+            padding-top: 2.2rem;
+            border-top: 1px solid rgba(249, 244, 238, 0.1);
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--warm-cream);
+        }
+
+        .hero-badge-item i {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           3. OUR STORY SECTION - SPLIT LAYOUT
+           ========================================= */
+        .story-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4.5rem;
+            align-items: center;
+        }
+
+        .story-image-wrap {
+            position: relative;
+        }
+
+        .story-main-img-card {
+            border-radius: 1.75rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            background-color: var(--neutral-taupe);
+            aspect-ratio: 4/5;
+        }
+
+        .story-main-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .story-main-img-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .story-floating-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding: 1.25rem 1.6rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 12px 30px rgba(61, 38, 29, 0.25);
+            border: 1px solid rgba(245, 184, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .story-floating-badge .badge-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(245, 184, 0, 0.2);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .story-floating-badge strong {
+            display: block;
+            font-size: 1.05rem;
+            font-family: var(--font-heading);
+            color: var(--warm-cream);
+        }
+
+        .story-floating-badge span {
+            font-size: 0.78rem;
+            color: var(--neutral-taupe);
+            letter-spacing: 0.5px;
+        }
+
+        /* General Like Button Floating Style */
+        .like-badge-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: rgba(61, 38, 29, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--warm-cream);
+            border: 1px solid rgba(249, 244, 238, 0.2);
+            border-radius: 30px;
+            padding: 0.45rem 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 15;
+            user-select: none;
+        }
+
+        .like-badge-btn:hover {
+            background: var(--dark-mocha);
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .like-badge-btn i {
+            color: #e74c3c;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .like-badge-btn.liked i {
+            transform: scale(1.25);
+        }
+
+        .story-content h2 {
+            font-size: clamp(2.2rem, 3.8vw, 3rem);
+            margin-bottom: 1.4rem;
+        }
+
+        .story-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+        }
+
+        .story-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .story-pillar-item {
+            background: var(--white);
+            padding: 1.2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--neutral-taupe);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .story-pillar-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .story-pillar-item i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .story-pillar-item strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--dark-mocha);
+            margin-bottom: 0.2rem;
+        }
+
+        .story-pillar-item span {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .story-quote-block {
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1.5rem;
+            margin-top: 1.8rem;
+            font-style: italic;
+            color: var(--dark-mocha);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .story-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--mocha-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           4. OUR VALUES SECTION (.cards-grid, .feature-card)
+           ========================================= */
+        .values-section {
+            background-color: #F3EAE0;
+            border-top: 1px solid rgba(61, 38, 29, 0.06);
+            border-bottom: 1px solid rgba(61, 38, 29, 0.06);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--neutral-taupe);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-card-img-wrap {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background-color: var(--neutral-taupe);
+        }
+
+        .feature-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover .feature-card-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .feature-card-icon-pill {
+            position: absolute;
+            bottom: -22px;
+            left: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--dark-mocha);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(61, 38, 29, 0.25);
+            border: 2px solid var(--white);
+            z-index: 5;
+        }
+
+        .feature-card-body {
+            padding: 2.2rem 1.6rem 1.8rem 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-mocha);
+        }
+
+        .feature-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .feature-card-badge-tag {
+            margin-top: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dark-mocha);
+            background: rgba(245, 184, 0, 0.15);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            align-self: flex-start;
+        }
+
+        /* =========================================
+           5. MEET OUR INGREDIENTS SECTION (6 Cards)
+           ========================================= */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .ingredient-card {
+            background-color: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--neutral-taupe);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .ingredient-img-wrapper {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background-color: var(--neutral-taupe);
+        }
+
+        .ingredient-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .ingredient-card:hover .ingredient-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .ingredient-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 14px;
+            background: rgba(61, 38, 29, 0.85);
+            backdrop-filter: blur(6px);
+            color: var(--warm-cream);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(245, 184, 0, 0.3);
+        }
+
+        .ingredient-body {
+            padding: 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ingredient-latin {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            text-transform: capitalize;
+        }
+
+        .ingredient-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.7rem;
+            color: var(--dark-mocha);
+        }
+
+        .ingredient-body p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .ingredient-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(61, 38, 29, 0.08);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .ingredient-origin {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .ingredient-origin i {
+            color: var(--accent-gold);
+        }
+
+        /* =========================================
+           6. OUR JOURNEY TIMELINE SECTION (2020-2024)
+           ========================================= */
+        .timeline-section {
+            background-color: var(--dark-mocha);
+            color: var(--warm-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 85% 15%, rgba(245, 184, 0, 0.07), transparent 60%);
+            pointer-events: none;
+        }
+
+        .timeline-section .section-header-center h2 {
+            color: var(--warm-cream);
+        }
+
+        .timeline-section .section-header-center p {
+            color: var(--neutral-taupe);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Central Timeline Track */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(245, 184, 0, 0.1), var(--accent-gold), rgba(245, 184, 0, 0.1));
+            transform: translateX(-50%);
+        }
+
+        .timeline-milestone {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .timeline-milestone:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-milestone:nth-child(even) {
+            direction: rtl;
+        }
+
+        .timeline-milestone:nth-child(even) .milestone-card-content {
+            direction: ltr;
+        }
+
+        .timeline-node-marker {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--dark-mocha);
+            border: 3px solid var(--accent-gold);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(245, 184, 0, 0.4);
+            z-index: 10;
+        }
+
+        .milestone-visual-wrap {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(245, 184, 0, 0.2);
+            aspect-ratio: 16/10;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .milestone-visual-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .milestone-visual-wrap:hover img {
+            transform: scale(1.05);
+        }
+
+        .milestone-year-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .milestone-card-content {
+            background: rgba(249, 244, 238, 0.04);
+            padding: 2.2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(249, 244, 238, 0.1);
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
+        }
+
+        .milestone-card-content:hover {
+            border-color: rgba(245, 184, 0, 0.35);
+            background: rgba(249, 244, 238, 0.07);
+            transform: translateY(-4px);
+        }
+
+        .milestone-step-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .milestone-card-content h3 {
+            font-size: 1.5rem;
+            color: var(--warm-cream);
+            margin-bottom: 0.9rem;
+        }
+
+        .milestone-card-content p {
+            color: var(--neutral-taupe);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           7. TEAM SECTION (3 Portrait Cards)
+           ========================================= */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--neutral-taupe);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .team-portrait-wrap {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background-color: var(--neutral-taupe);
+        }
+
+        .team-portrait-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .team-card:hover .team-portrait-wrap img {
+            transform: scale(1.05);
+        }
+
+        .team-social-overlay {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            gap: 0.6rem;
+            z-index: 5;
+        }
+
+        .team-social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(61, 38, 29, 0.85);
+            backdrop-filter: blur(6px);
+            color: var(--warm-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: 1px solid rgba(245, 184, 0, 0.25);
+        }
+
+        .team-social-icon:hover {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            transform: translateY(-2px);
+        }
+
+        .team-card-body {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-role {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            margin-bottom: 0.4rem;
+        }
+
+        .team-card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-mocha);
+        }
+
+        .team-card-body p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        /* =========================================
+           8. CTA BANNER
+           ========================================= */
+        .cta-banner-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--dark-mocha) 0%, #2A1710 100%);
+            color: var(--warm-cream);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(245, 184, 0, 0.15);
+        }
+
+        .cta-banner-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(245, 184, 0, 0.12), transparent 75%);
+            pointer-events: none;
+        }
+
+        .cta-container {
+            max-width: 820px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 1.4rem;
+            background: rgba(245, 184, 0, 0.12);
+            padding: 0.45rem 1.3rem;
+            border-radius: 50px;
+            border: 1px solid rgba(245, 184, 0, 0.25);
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+            color: var(--warm-cream);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cta-container p {
+            font-size: 1.15rem;
+            color: var(--neutral-taupe);
+            margin-bottom: 2.6rem;
+            line-height: 1.7;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--warm-cream);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 25px;
+            border: 1px solid rgba(249, 244, 238, 0.2);
+            transition: var(--transition);
+        }
+
+        .cta-secondary-link:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            background: rgba(245, 184, 0, 0.08);
+            transform: translateX(4px);
+        }
+
+        /* =========================================
+           9. BRAND FOOTER
+           ========================================= */
+        .footer {
+            background-color: #2D1B14;
+            color: var(--warm-cream);
+            padding: 5rem 4rem 2.5rem;
+            border-top: 1px solid rgba(249, 244, 238, 0.08);
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .brand-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            font-family: var(--font-heading);
+            color: var(--warm-cream);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: var(--neutral-taupe);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 360px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(249, 244, 238, 0.08);
+            color: var(--warm-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--dark-mocha);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: var(--warm-cream);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--neutral-taupe);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 4px;
+        }
+
+        .footer-newsletter p {
+            color: var(--neutral-taupe);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 25px;
+            border: 1px solid rgba(249, 244, 238, 0.2);
+            background: rgba(249, 244, 238, 0.06);
+            color: var(--warm-cream);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--accent-gold);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent-gold);
+            color: var(--dark-mocha);
+            border-radius: 25px;
+            padding: 0.75rem 1.3rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .newsletter-btn:hover {
+            background-color: #ffd24d;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(249, 244, 238, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #98877e;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Toast Feedback */
+        .toast-like-notice {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--dark-mocha);
+            color: var(--warm-cream);
+            padding: 0.85rem 1.4rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid var(--accent-gold);
+            transform: translateY(100px);
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 3000;
+        }
+
+        .toast-like-notice.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-like-notice i {
+            color: #e74c3c;
+            font-size: 1.1rem;
+        }
+
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================= */
+        @media (max-width: 1200px) {
+            .navbar { padding: 1.1rem 2.5rem; }
+            .cards-grid, .ingredients-grid, .team-grid { gap: 1.5rem; }
+            .story-split { gap: 3.5rem; }
+            .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 1024px) {
+            .navbar { padding: 1rem 2rem; }
+            .nav-left, .nav-right { gap: 1.2rem; }
+            .story-split { grid-template-columns: 1fr; gap: 3.5rem; }
+            .story-image-wrap { max-width: 580px; margin: 0 auto; width: 100%; }
+            .cards-grid, .ingredients-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-container::before { left: 30px; }
+            .timeline-milestone { grid-template-columns: 1fr; direction: ltr !important; padding-left: 70px; gap: 1.8rem; }
+            .timeline-milestone:nth-child(even) { direction: ltr !important; }
+            .timeline-milestone:nth-child(even) .milestone-card-content { direction: ltr !important; }
+            .timeline-node-marker { left: 30px; top: 30px; transform: translate(-50%, 0); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0.9rem 1.2rem; }
+            .nav-left a.nav-link, .nav-right a.nav-link { display: none; }
+            .section-padding { padding: 4rem 0; }
+            .page-header { padding-top: 120px; padding-bottom: 55px; }
+            .hero-badges-strip { gap: 1.2rem; flex-direction: column; align-items: center; }
+            .cards-grid, .ingredients-grid, .team-grid { grid-template-columns: 1fr; }
+            .story-pillars { grid-template-columns: 1fr; }
+            .story-floating-badge { bottom: 10px; right: 10px; padding: 1rem 1.2rem; }
+            .timeline-milestone { padding-left: 55px; }
+            .timeline-container::before { left: 20px; }
+            .timeline-node-marker { left: 20px; width: 36px; height: 36px; font-size: 0.8rem; }
+            .footer { padding: 3.5rem 1.5rem 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .cta-actions { flex-direction: column; width: 100%; }
+            .cta-actions a, .cta-actions button { width: 100%; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo { font-size: 1.35rem; letter-spacing: 3px; }
+            .btn-shop { padding: 0.55rem 1.2rem; font-size: 0.75rem !important; }
+            .page-header h1 { font-size: 2.4rem; }
+            .story-floating-badge { position: static; margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Navigation Bar System -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="menu-icon" id="menuToggleBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-th-large"></i> MENU &nbsp;&nbsp;|&nbsp;&nbsp;
+            </button>
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="products.html" class="nav-link">PRODUCTS</a>
+            <a href="about.html" class="nav-link active">ABOUT</a>
+        </div>
+        <a href="index.html" class="nav-logo">DERMIQT</a>
+        <div class="nav-right">
+            <a href="reviews.html" class="nav-link">REVIEWS</a>
+            <a href="blog.html" class="nav-link">BLOG</a>
+            <a href="gallery.html" class="nav-link">GALLERY</a>
+            <a href="products.html"><button class="btn-shop">SHOP NOW <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+        <div class="drawer-header">
+            <span class="nav-logo">DERMIQT</span>
+            <button class="drawer-close" id="drawerCloseBtn" aria-label="Close Navigation Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html" class="drawer-link"><i class="fas fa-home"></i> HOME</a>
+            <a href="products.html" class="drawer-link"><i class="fas fa-spa"></i> PRODUCTS</a>
+            <a href="about.html" class="drawer-link active"><i class="fas fa-seedling"></i> ABOUT</a>
+            <a href="reviews.html" class="drawer-link"><i class="fas fa-star"></i> REVIEWS</a>
+            <a href="blog.html" class="drawer-link"><i class="fas fa-book-open"></i> BLOG</a>
+            <a href="gallery.html" class="drawer-link"><i class="fas fa-images"></i> GALLERY</a>
+        </div>
+        <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(249, 244, 238, 0.15);">
+            <a href="products.html" style="width: 100%;">
+                <button class="btn-shop" style="width: 100%; justify-content: center; padding: 0.85rem;">
+                    EXPLORE SHOP
+                </button>
+            </a>
+        </div>
+    </aside>
+
+    <!-- 2. Hero Header -->
+    <header class="page-header fade-in">
+        <div class="container">
+            <div class="header-eyebrow">
+                <i class="fas fa-leaf"></i> Conscious Botanical Skincare
+            </div>
+            <h1>About DERMIQT</h1>
+            <p>Care Beyond Boundaries — Formulating bio-harmonious, 100% certified organic skincare rooted in ancient botanical wisdom and clinical dermal integrity.</p>
+
+            <div class="hero-badges-strip">
+                <div class="hero-badge-item">
+                    <i class="fas fa-certificate"></i> 100% Certified Organic
+                </div>
+                <div class="hero-badge-item">
+                    <i class="fas fa-paw"></i> Leaping Bunny Cruelty-Free
+                </div>
+                <div class="hero-badge-item">
+                    <i class="fas fa-recycle"></i> 100% Recyclable Packaging
+                </div>
+                <div class="hero-badge-item">
+                    <i class="fas fa-award"></i> Dermatologist Approved
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Our Story Section - Split Layout (Image Left, Text Right) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="story-split">
+                <!-- Left: Visual Story Card -->
+                <div class="story-image-wrap fade-up">
+                    <div class="story-main-img-card">
+                        <!-- Image 1: Skincare ritual & pure connection -->
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="DERMIQT brand story botanical facial ritual" loading="lazy">
+                        <!-- Interactive Like Button on Key Image -->
+                        <button class="like-badge-btn" data-key="story-main" data-likes="94" aria-label="Like DERMIQT brand story photo">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">94</span>
+                        </button>
+                    </div>
+
+                    <div class="story-floating-badge slide-in-right">
+                        <div class="badge-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div>
+                            <strong>100% Organic Origin</strong>
+                            <span>Small Batch Cold-Pressed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="story-content fade-up" style="transition-delay: 0.15s;">
+                    <div class="eyebrow-badge">
+                        <i class="fas fa-feather-alt"></i> The Genesis
+                    </div>
+                    <h2>Care Beyond Boundaries Born From Living Earth</h2>
+                    <p>
+                        DERMIQT was founded in 2020 by botanist Dr. Elena Vance after spending over a decade researching indigenous herbal pharmacology. She witnessed how conventional cosmetics, laden with silicones, parabens, and aggressive petrochemical emulsifiers, chronically stripped the skin's protective moisture barrier.
+                    </p>
+                    <p>
+                        We set out with an unyielding promise: to construct holistic skin rituals purely from organic cold-pressed plants, therapeutic clays, and nutrient-dense lipids. We refuse filler water, synthetic preservatives, and artificial fragrances. Every formula is designed to mimic your skin’s biological lipid architecture.
+                    </p>
+
+                    <div class="story-pillars">
+                        <div class="story-pillar-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Bio-Harmonious</strong>
+                                <span>Matches skin acid mantle naturally</span>
+                            </div>
+                        </div>
+                        <div class="story-pillar-item">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <strong>Cold-Pressed</strong>
+                                <span>Zero heat damage to delicate nutrients</span>
+                            </div>
+                        </div>
+                        <div class="story-pillar-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <div>
+                                <strong>Fair Trade Harvest</strong>
+                                <span>Ethically sourced from family co-ops</span>
+                            </div>
+                        </div>
+                        <div class="story-pillar-item">
+                            <i class="fas fa-shield-virus"></i>
+                            <div>
+                                <strong>Microbiome Safe</strong>
+                                <span>Preserves essential surface flora</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-quote-block">
+                        "Your skin doesn't need twenty synthetic chemicals to glow — it needs honest, biologically active plants that work in concert with nature."
+                        <span class="story-author">— Dr. Elena Vance, Founder & Master Herbalist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Values Section - 3 Cards Grid -->
+    <section class="section-padding values-section">
+        <div class="container">
+            <div class="section-header-center fade-up">
+                <div class="eyebrow-badge">
+                    <i class="fas fa-shield-alt"></i> Non-Negotiable Pillars
+                </div>
+                <h2>Our Guiding Values</h2>
+                <p>Integrity is not an afterthought at DERMIQT. From regenerative agriculture to cruelty-free lab verification, here are the three unwavering values shaping every bottle.</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Value 1: 100% Organic -->
+                <div class="feature-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="feature-card-img-wrap">
+                        <!-- Image 2: Organic cultivation / lush nature -->
+                        <img src="https://images.unsplash.com/photo-1605663730700-1c9f0c2e3dd7?auto=format&fit=crop&w=400&q=80" alt="100% Certified Organic botanical field" loading="lazy">
+                        <button class="like-badge-btn" data-key="val-organic" data-likes="88" aria-label="Like 100% Organic commitment">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">88</span>
+                        </button>
+                    </div>
+                    <div class="feature-card-icon-pill">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>100% Organic</h3>
+                        <p>Every single plant active is harvested from certified organic and biodynamic estates without chemical fertilizers, toxic glyphosates, or GMO seeds. Clean, active soil yields the purest nutrition for your complexion.</p>
+                        <span class="feature-card-badge-tag"><i class="fas fa-certificate"></i> USDA & Ecocert Certified</span>
+                    </div>
+                </div>
+
+                <!-- Value 2: Cruelty Free -->
+                <div class="feature-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="feature-card-img-wrap">
+                        <!-- Image 3: Gentle nature / compassion -->
+                        <img src="https://images.unsplash.com/photo-1614859324967-bdf4736f87ea?auto=format&fit=crop&w=400&q=80" alt="Cruelty free ethical skincare testing" loading="lazy">
+                        <button class="like-badge-btn" data-key="val-cruelty" data-likes="92" aria-label="Like Cruelty Free commitment">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">92</span>
+                        </button>
+                    </div>
+                    <div class="feature-card-icon-pill">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>Cruelty Free</h3>
+                        <p>Proudly Leaping Bunny certified since inception. We never test on animals, nor do we contract third parties to do so. True radiance thrives when skin health is aligned with universal empathy and compassion.</p>
+                        <span class="feature-card-badge-tag"><i class="fas fa-heart"></i> Leaping Bunny Approved</span>
+                    </div>
+                </div>
+
+                <!-- Value 3: Sustainable -->
+                <div class="feature-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="feature-card-img-wrap">
+                        <!-- Image 4: Eco-conscious packaging / clean beauty -->
+                        <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=400&q=80" alt="Sustainable amber glass and eco-friendly skincare" loading="lazy">
+                        <button class="like-badge-btn" data-key="val-sustainable" data-likes="85" aria-label="Like Sustainable commitment">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">85</span>
+                        </button>
+                    </div>
+                    <div class="feature-card-icon-pill">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="feature-card-body">
+                        <h3>Sustainable</h3>
+                        <p>We preserve our living planet through UV-protective recyclable amber glass, compostable unbleached cartons with non-toxic soy inks, and a carbon-negative supply network powering 100% solar operations.</p>
+                        <span class="feature-card-badge-tag"><i class="fas fa-recycle"></i> 100% Zero Landfill Waste</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Meet Our Ingredients Section - Grid of 6 Cards with Like Counters -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header-center fade-up">
+                <div class="eyebrow-badge">
+                    <i class="fas fa-mortar-pestle"></i> Active Botanicals
+                </div>
+                <h2>Meet Our Ingredients</h2>
+                <p>Pure, unadulterated botanical power. Every extract is cold-pressed and laboratory tested to ensure maximum cellular bioavailability and antioxidant density.</p>
+            </div>
+
+            <div class="cards-grid ingredients-grid">
+                <!-- Ingredient 1: Avocado Oil (Count: 52) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 5: Avocado Oil -->
+                        <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80" alt="Avocado Oil botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> Cold Pressed</span>
+                        <button class="like-badge-btn" data-ingredient="Avocado Oil" data-likes="52" aria-label="Like Avocado Oil ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">52</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Persea Gratissima</span>
+                        <h3>Avocado Oil</h3>
+                        <p>Rich in oleic acid, phytosterols, and natural vitamins A, D, and E. Deeply reinforces the stratum corneum lipid matrix, seals parched skin patches, and locks in essential hydration without clogging pores.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Michoacán, Mexico</span>
+                            <span>Moisture Seal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingredient 2: Rosehip Extract (Count: 67) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.15s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 6: Rosehip Extract -->
+                        <img src="https://images.unsplash.com/photo-1615396899839-c99c14188f60?auto=format&fit=crop&w=400&q=80" alt="Rosehip Extract botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> CO2 Extracted</span>
+                        <button class="like-badge-btn" data-ingredient="Rosehip Extract" data-likes="67" aria-label="Like Rosehip Extract ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">67</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Rosa Canina</span>
+                        <h3>Rosehip Extract</h3>
+                        <p>Loaded with pro-vitamin A trans-retinoic acid, lycopene, and essential omega 3, 6, and 9. Visibly accelerates cell regeneration, fades stubborn post-blemish marks, and promotes resilient dermal elasticity.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Patagonian Andes</span>
+                            <span>Cellular Renewal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingredient 3: Turmeric (Count: 81) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 7: Turmeric -->
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80" alt="Turmeric botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> Bio-Fermented</span>
+                        <button class="like-badge-btn" data-ingredient="Turmeric" data-likes="81" aria-label="Like Turmeric ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">81</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Curcuma Longa</span>
+                        <h3>Turmeric</h3>
+                        <p>A powerhouse botanical revered for active curcuminoids and aromatic turmerones. Soothes stubborn micro-inflammation, defends against environmental photo-stressors, and illuminates dull complexions with golden vitality.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Kerala, India</span>
+                            <span>Brightening Glow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingredient 4: Aloe Vera (Count: 59) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.25s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 8: Aloe Vera -->
+                        <img src="https://images.unsplash.com/photo-1608248593842-8d765870a4c2?auto=format&fit=crop&w=400&q=80" alt="Aloe Vera botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> Hand Filleted</span>
+                        <button class="like-badge-btn" data-ingredient="Aloe Vera" data-likes="59" aria-label="Like Aloe Vera ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">59</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Aloe Barbadensis Miller</span>
+                        <h3>Aloe Vera</h3>
+                        <p>Raw inner-leaf gel containing over 75 vital nutrients, amino acids, and acemannan polysaccharides. Immediately calms heat sensitivity, rehydrates parched dermal cells, and supports rapid barrier recovery.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Andalusia, Spain</span>
+                            <span>Deep Hydration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingredient 5: Neem (Count: 73) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 9: Neem -->
+                        <img src="https://images.unsplash.com/photo-1571781526291-c477eb311dc6?auto=format&fit=crop&w=400&q=80" alt="Neem botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> Cold Macerated</span>
+                        <button class="like-badge-btn" data-ingredient="Neem" data-likes="73" aria-label="Like Neem ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">73</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Azadirachta Indica</span>
+                        <h3>Neem</h3>
+                        <p>Ancient Ayurvedic purifying leaf renowned for natural nimbin and azadirachtin compounds. Clears clogged micro-pores, balances excessive sebum production, and fortifies the skin against recurring breakout triggers.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Tamil Nadu, India</span>
+                            <span>Blemish Clarifying</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingredient 6: Coconut Oil (Count: 64) -->
+                <div class="ingredient-card feature-card fade-up" style="transition-delay: 0.35s;">
+                    <div class="ingredient-img-wrapper">
+                        <!-- Image 10: Coconut Oil -->
+                        <img src="https://images.unsplash.com/photo-1592652425574-e3fb0eeb04af?auto=format&fit=crop&w=400&q=80" alt="Coconut Oil botanical skincare ingredient" loading="lazy">
+                        <span class="ingredient-badge"><i class="fas fa-flask"></i> Virgin Fractionated</span>
+                        <button class="like-badge-btn" data-ingredient="Coconut Oil" data-likes="64" aria-label="Like Coconut Oil ingredient">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">64</span>
+                        </button>
+                    </div>
+                    <div class="ingredient-body">
+                        <span class="ingredient-latin">Cocos Nucifera</span>
+                        <h3>Coconut Oil</h3>
+                        <p>Pure raw virgin coconut lipids packed with antimicrobial lauric acid and medium-chain triglycerides. Nourishes rough epidermal layers, smooths flakiness, and creates a featherweight protective moisture veil.</p>
+                        <div class="ingredient-meta-row">
+                            <span class="ingredient-origin"><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</span>
+                            <span>Lipid Barrier Shield</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Our Journey Timeline Section (2020-2024) -->
+    <section class="section-padding timeline-section">
+        <div class="container">
+            <div class="section-header-center fade-up">
+                <div class="eyebrow-badge">
+                    <i class="fas fa-history"></i> Evolution of Excellence
+                </div>
+                <h2>Our Journey (2020 - 2024)</h2>
+                <p>From an apothecary kitchen experiment to an internationally celebrated clean skincare brand, explore the pivotal moments of our evolution.</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Milestone 1: 2020 -->
+                <div class="timeline-milestone fade-up">
+                    <div class="milestone-visual-wrap">
+                        <!-- Image 11: Apothecary foundation / glass dropper bottles -->
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80" alt="DERMIQT apothecary beginnings 2020" loading="lazy">
+                        <span class="milestone-year-badge">2020</span>
+                    </div>
+                    <div class="timeline-node-marker">01</div>
+                    <div class="milestone-card-content">
+                        <span class="milestone-step-tag">The Apothecary Spark</span>
+                        <h3>Humble Lab Formulations</h3>
+                        <p>Dr. Elena Vance concocts the first three DERMIQT cold-pressed barrier elixirs in small 100-bottle artisanal batches, formulating specifically to reverse chronic chemical sensitivity and barrier depletion.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 2: 2021 -->
+                <div class="timeline-milestone fade-up">
+                    <div class="milestone-visual-wrap">
+                        <!-- Image 12: Sustainable packaging / amber bottles -->
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=400&q=80" alt="DERMIQT sustainable amber glass transition 2021" loading="lazy">
+                        <span class="milestone-year-badge">2021</span>
+                    </div>
+                    <div class="timeline-node-marker">02</div>
+                    <div class="milestone-card-content">
+                        <span class="milestone-step-tag">Zero Plastic Mandate</span>
+                        <h3>Amber Glass & Ethical Sourcing</h3>
+                        <p>We eliminate all virgin plastics in favor of 100% pharmaceutical-grade UV-protective amber glass and formalize direct fair-trade agreements with regenerative botanic farming cooperatives across 4 continents.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3: 2022 -->
+                <div class="timeline-milestone fade-up">
+                    <div class="milestone-visual-wrap">
+                        <!-- Image 13: Clinical testing / skincare product science -->
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80" alt="DERMIQT clinical verification 2022" loading="lazy">
+                        <span class="milestone-year-badge">2022</span>
+                    </div>
+                    <div class="timeline-node-marker">03</div>
+                    <div class="milestone-card-content">
+                        <span class="milestone-step-tag">Dermal Verification</span>
+                        <h3>Independent Clinical Trials</h3>
+                        <p>Rigorous 12-week double-blind clinical studies confirm a 94% improvement in barrier hydration retention and a 78% reduction in visible redness, securing verified dermatologist endorsements worldwide.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 4: 2023-2024 -->
+                <div class="timeline-milestone fade-up">
+                    <div class="milestone-visual-wrap">
+                        <!-- Image 14: Global community / smiling team -->
+                        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?auto=format&fit=crop&w=400&q=80" alt="DERMIQT global community and carbon negative milestone 2023-2024" loading="lazy">
+                        <span class="milestone-year-badge">2023-2024</span>
+                    </div>
+                    <div class="timeline-node-marker">04</div>
+                    <div class="milestone-card-content">
+                        <span class="milestone-step-tag">Global Movement</span>
+                        <h3>Carbon Negative & 250k Radiance Rituals</h3>
+                        <p>Surpassed 250,000 delighted community members across 30 countries while achieving verified carbon-negative production through solar power investments and native wetland restoration projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Team Section with 3 Team Member Cards (Portrait Images) -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header-center fade-up">
+                <div class="eyebrow-badge">
+                    <i class="fas fa-users"></i> The Visionaries
+                </div>
+                <h2>Meet Our Leadership</h2>
+                <p>Passionate ethnobotanists, green biochemists, and sustainability stewards uniting traditional plant medicine with modern clinical rigour.</p>
+            </div>
+
+            <div class="cards-grid team-grid">
+                <!-- Member 1: Dr. Elena Vance -->
+                <div class="team-card feature-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="team-portrait-wrap">
+                        <!-- Image 15: Portrait 1 -->
+                        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?auto=format&fit=crop&w=400&q=80" alt="Dr. Elena Vance Founder & Master Herbalist" loading="lazy">
+                        <div class="team-social-overlay">
+                            <a href="#" class="team-social-icon" aria-label="Elena Vance LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-icon" aria-label="Elena Vance Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <button class="like-badge-btn" data-team="Dr. Elena Vance" data-likes="76" aria-label="Like Dr. Elena Vance profile">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">76</span>
+                        </button>
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-role">Founder & Master Herbalist</span>
+                        <h3>Dr. Elena Vance</h3>
+                        <p>With over 14 years specializing in ethnobotanical research and phytotherapy, Elena champions clean biocompatible lipid formulations that reverse barrier degradation naturally.</p>
+                    </div>
+                </div>
+
+                <!-- Member 2: Marcus Chen -->
+                <div class="team-card feature-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="team-portrait-wrap">
+                        <!-- Image 16: Portrait 2 -->
+                        <img src="https://images.unsplash.com/photo-1611078422533-315159048a17?auto=format&fit=crop&w=400&q=80" alt="Marcus Chen Head of Botanical Science & Formulation" loading="lazy">
+                        <div class="team-social-overlay">
+                            <a href="#" class="team-social-icon" aria-label="Marcus Chen LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-icon" aria-label="Marcus Chen ResearchGate"><i class="fas fa-flask"></i></a>
+                        </div>
+                        <button class="like-badge-btn" data-team="Marcus Chen" data-likes="68" aria-label="Like Marcus Chen profile">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">68</span>
+                        </button>
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-role">Head of Botanical Science</span>
+                        <h3>Marcus Chen</h3>
+                        <p>Former green chemistry researcher dedicated to solvent-free supercritical extraction methods. Marcus ensures every batch maintains cellular nutrient density and flawless pH balance.</p>
+                    </div>
+                </div>
+
+                <!-- Member 3: Sophie Al-Mansoor -->
+                <div class="team-card feature-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="team-portrait-wrap">
+                        <!-- Image 17: Portrait 3 -->
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Sophie Al-Mansoor Sustainability & Sourcing Director" loading="lazy">
+                        <div class="team-social-overlay">
+                            <a href="#" class="team-social-icon" aria-label="Sophie Al-Mansoor LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="team-social-icon" aria-label="Sophie Al-Mansoor Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <button class="like-badge-btn" data-team="Sophie Al-Mansoor" data-likes="71" aria-label="Like Sophie Al-Mansoor profile">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">71</span>
+                        </button>
+                    </div>
+                    <div class="team-card-body">
+                        <span class="team-role">Director of Sourcing</span>
+                        <h3>Sophie Al-Mansoor</h3>
+                        <p>Overseeing direct regenerative partnerships with certified organic family farms. Sophie guarantees fair wages, circular zero-waste processing, and pesticide-free purity for every botanical harvest.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CTA Banner -->
+    <section class="cta-banner-section fade-up">
+        <div class="container">
+            <div class="cta-container">
+                <span class="cta-badge">
+                    <i class="fas fa-sparkles"></i> Awaken Your Natural Radiance
+                </span>
+                <h2>Ready to start your skincare journey?</h2>
+                <p>Nourish your skin with biologically active, cold-pressed botanicals crafted to protect your natural lipid barrier. Pure goodness, uncompromising results.</p>
+                <div class="cta-actions">
+                    <a href="products.html">
+                        <button class="btn-shop" style="padding: 0.9rem 2.4rem; font-size: 0.92rem !important;">
+                            SHOP NOW <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </a>
+                    <a href="reviews.html" class="cta-secondary-link">
+                        Read Verified Customer Reviews <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Complete Brand Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">DERMIQT</a>
+                <p>Pure botanical skincare formulated to celebrate the natural skin barrier. Conscious beauty developed with cold-pressed integrity and mindful science.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Our Products</a></li>
+                    <li><a href="about.html">About DERMIQT</a></li>
+                    <li><a href="reviews.html">Verified Reviews</a></li>
+                    <li><a href="gallery.html">Community Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Skincare Wisdom</h4>
+                <ul class="footer-links">
+                    <li><a href="blog.html">Skin Journal & Blog</a></li>
+                    <li><a href="products.html">Routine Advisor</a></li>
+                    <li><a href="about.html">Botanical Ingredients</a></li>
+                    <li><a href="reviews.html">Customer Stories</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>Join The Ritual</h4>
+                <p>Subscribe for exclusive product drops, holistic skincare guides, and 15% off your first botanical purchase.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to DERMIQT rituals!'); this.reset();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DERMIQT Botanicals. All rights reserved.</p>
+            <p>Crafted with devotion for healthy, glowing skin everywhere.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Toast Notice -->
+    <div class="toast-like-notice" id="toastNotice" role="alert" aria-live="polite">
+        <i class="fas fa-heart"></i>
+        <span id="toastNoticeText">Added to favorites</span>
+    </div>
+
+    <!-- Inline Script for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Interactive Like Button Functionality with Counter
+            const likeButtons = document.querySelectorAll('.like-badge-btn');
+            const toastNotice = document.getElementById('toastNotice');
+            const toastNoticeText = document.getElementById('toastNoticeText');
+            let toastTimer = null;
+
+            function showToast(message, isLiked) {
+                if (!toastNotice) return;
+                toastNoticeText.textContent = message;
+                const heartIcon = toastNotice.querySelector('i');
+                if (heartIcon) {
+                    heartIcon.className = isLiked ? 'fas fa-heart' : 'far fa-heart';
+                    heartIcon.style.color = isLiked ? '#e74c3c' : 'var(--accent-gold)';
+                }
+                toastNotice.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toastNotice.classList.remove('show');
+                }, 2200);
+            }
+
+            likeButtons.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const countEl = btn.querySelector('.like-count');
+                    const iconEl = btn.querySelector('i');
+                    let currentCount = parseInt(btn.dataset.likes || countEl.textContent.trim(), 10) || 0;
+                    const isLiked = btn.classList.contains('liked');
+
+                    const subjectName = btn.dataset.ingredient || btn.dataset.team || 'Photo';
+
+                    if (isLiked) {
+                        // Undo like
+                        btn.classList.remove('liked');
+                        currentCount = Math.max(0, currentCount - 1);
+                        btn.dataset.likes = currentCount;
+                        countEl.textContent = currentCount;
+
+                        if (iconEl) {
+                            iconEl.className = 'far fa-heart';
+                        }
+                        showToast(`Removed like from ${subjectName}`, false);
+                    } else {
+                        // Add like
+                        btn.classList.add('liked');
+                        currentCount += 1;
+                        btn.dataset.likes = currentCount;
+                        countEl.textContent = currentCount;
+
+                        if (iconEl) {
+                            iconEl.className = 'fas fa-heart';
+                        }
+                        showToast(`Liked ${subjectName} (${currentCount} likes)`, true);
+                    }
+                });
+            });
+
+            // 2. IntersectionObserver for Smooth Scroll Animations
+            const animElements = document.querySelectorAll('.fade-in, .fade-up, .slide-in-right');
+            if ('IntersectionObserver' in window) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.12
+                };
+
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                animElements.forEach(el => observer.observe(el));
+            } else {
+                // Fallback if IntersectionObserver is not supported
+                animElements.forEach(el => el.classList.add('visible'));
+            }
+
+            // 3. Mobile Navigation Drawer Controls
+            const menuToggle = document.getElementById('menuToggleBtn');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+            const drawerClose = document.getElementById('drawerCloseBtn');
+            const drawerBackdrop = document.getElementById('drawerBackdrop');
+
+            function toggleDrawer(isOpen) {
+                if (!mobileDrawer || !drawerBackdrop) return;
+                if (isOpen) {
+                    mobileDrawer.classList.add('open');
+                    drawerBackdrop.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileDrawer.classList.remove('open');
+                    drawerBackdrop.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (menuToggle) menuToggle.addEventListener('click', () => toggleDrawer(true));
+            if (drawerClose) drawerClose.addEventListener('click', () => toggleDrawer(false));
+            if (drawerBackdrop) drawerBackdrop.addEventListener('click', () => toggleDrawer(false));
+
+            // Close drawer with Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+                    toggleDrawer(false);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
